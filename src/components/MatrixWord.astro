@@ -1,0 +1,69 @@
+---
+interface Props {
+	word: string;
+}
+
+const { word } = Astro.props;
+
+
+// const p = document.getElementById('p')
+
+// const text = p.innerText
+
+const katakana = 'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズブヅプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッン';
+const latin = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+const nums = '0123456789';
+const binario = '010101010101010101010101010101'
+
+const alpha = katakana + latin + nums;
+const percent = [...Array(101).keys()]
+
+let matrixKeyframe: {[k:string]:string}
+percent.forEach(k=>{
+    matrixKeyframe[`${k}%`] = word.split('').map(()=>alpha[Math.floor(Math.random()*alpha.length)]).join('')
+})
+const randomWord = word.split('').map(()=>alpha[Math.floor(Math.random()*alpha.length)]).join('')
+const randomWord2 = word.split('').map(()=>alpha[Math.floor(Math.random()*alpha.length)]).join('')
+// let i = 0
+// const speed = 70
+// let loop = 0
+
+// function changeLetter(){
+//     const randomLetter = alpha[Math.floor(Math.random()*alpha.length)]
+//     const newLetter = document.createElement('i')
+//     newLetter.textContent = randomLetter
+//     return newLetter
+// }
+
+// function typingMatrix(){
+//     if(i <= text.length){
+
+//         const elementLetter = changeLetter()
+//         p.textContent = text.substring(0,i)
+//         p.appendChild(elementLetter)
+//         loop++
+//         if(loop >= 5){
+//             i++
+//             loop = 0
+//         }
+//         setTimeout(typingMatrix, speed)
+//     }else{
+//         p.innerHTML = text
+//         // randomMatrix()
+//     }
+// }
+
+// function randomMatrix(){
+//     setInterval(() => {
+        
+//     }, 500);
+// }
+    
+// typingMatrix()
+---
+
+<h3>{word}</h3>
+
+<style>
+    @keyframes ={matrixKeyFrame}
+</style>
