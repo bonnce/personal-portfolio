@@ -1,7 +1,28 @@
 ---
+import { ViewTransitions } from 'astro:transitions';
 interface Props {
 	title: string;
 }
+
+const anim = {
+  old: {
+    name: 'slideIn',
+    duration: '0.5s',
+    easing: 'linear',
+    fillMode: 'forwards',
+  },
+  new: {
+    name: 'slideOut',
+    duration: '0.5s',
+    easing: 'linear',
+    fillMode: 'backwards',
+  }
+};
+
+const slideDown = {
+  forwards: anim,
+  backwards: anim,
+};
 
 const { title } = Astro.props;
 ---
@@ -15,9 +36,10 @@ const { title } = Astro.props;
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+		<ViewTransitions/>
 	</head>
-	<body>
-		<slot />
+	<body transition:animate={slideDown}>
+		<slot/>
 	</body>
 </html>
 <style is:global>
@@ -48,4 +70,48 @@ const { title } = Astro.props;
 			Courier New,
 			monospace;
 	}
+	@keyframes slideIn {
+		from{
+			transform:translateY(0%)
+		}
+		to{
+			transform:translateY(100vh);
+		}
+	}
+	@keyframes slideOut {
+		from{
+			transform:translateY(-100vh)
+		}
+		to{
+			transform:translateY(0%);
+		}
+	}
 </style>
+
+<script>
+	document.addEventListener('astro:page-load',()=>{
+		const newDiv = document.createElement('div')
+		// @ts-ignore: Unreachable code error
+		newDiv.style.viewTransitionName = 'divaso'
+		newDiv.style.height = '40px'
+		newDiv.style.width = '40px'
+		newDiv.style.backgroundColor = '#F00'
+		document.body.append(newDiv)
+		console.log(newDiv)
+		document.documentElement.animate({
+			opacity:['1','0']
+		},{
+			duration: 500,
+			easing: 'ease-in',
+			pseudoElement: '::view-transition-group(divaso)'
+		})
+		document.documentElement.animate({
+			opacity:['1','0']
+		},{
+			duration: 500,
+			easing: 'ease-in',
+			pseudoElement: '::view-transition-group(divaso)'
+		})
+		
+	})
+</script>

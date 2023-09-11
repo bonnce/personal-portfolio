@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
+import { MatrixWord } from '../components/MatrixWord.tsx';
 ---
 
 <Layout title="Welcome to Astro.">
@@ -34,6 +35,7 @@ import Card from '../components/Card.astro';
 			</defs>
 		</svg>
 		<h1>Welcome to <span class="text-gradient">Astro</span></h1>
+		<MatrixWord word='DUARTE ELIAS DAVID' letterTime={2} animationTime={100} client:visible />
 		<p class="instructions">
 			To get started, open the directory <code>src/pages</code> in your project.<br />
 			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
@@ -57,6 +59,11 @@ import Card from '../components/Card.astro';
 			<Card
 				href="https://astro.build/chat/"
 				title="Community"
+				body="Come say hi to our amazing Discord community. ❤️"
+			/>
+			<Card
+				href="/about"
+				title="ABOUT"
 				body="Come say hi to our amazing Discord community. ❤️"
 			/>
 		</ul>
