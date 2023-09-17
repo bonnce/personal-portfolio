@@ -6,16 +6,17 @@ interface Props {
 
 const anim = {
   old: {
-    name: 'slideIn',
-    duration: '0.5s',
+    name: 'none',
+    duration: '1.5s',
     easing: 'linear',
-    fillMode: 'forwards',
+    fillMode: 'both',
   },
   new: {
     name: 'slideOut',
-    duration: '0.5s',
+		delay:'0.5s',
+    duration: '1s',
     easing: 'linear',
-    fillMode: 'backwards',
+    fillMode: 'both',
   }
 };
 
@@ -24,22 +25,47 @@ const slideDown = {
   backwards: anim,
 };
 
+const anim2 = {
+  old: {
+    name: 'fadeInDiv',
+    duration: '1.5s',
+    easing: 'linear',
+    // fillMode: 'forwards',
+    fillMode: 'backwards',
+  },
+  new: {
+    name: 'fadeOutDiv',
+    duration: '1.5s',
+    easing: 'linear',
+    fillMode: 'forwards',
+  }
+};
+
+const fadeado = {
+  forwards: anim2,
+  backwards: anim2,
+};
+
 const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" transition:animate="none">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content="Astro description" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Exo+2&family=Roboto+Slab:wght@500&family=Space+Grotesk&display=swap" rel="stylesheet">
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 		<ViewTransitions/>
 	</head>
-	<body transition:animate={slideDown}>
+	<body transition:name="slide" transition:animate={slideDown}>
 		<slot/>
+		<div id="divaso" transition:name="divaso" transition:animate={fadeado}></div>
 	</body>
 </html>
 <style is:global>
@@ -55,9 +81,18 @@ const { title } = Astro.props;
 		);
 	}
 	html {
+		background: #101510;
 		font-family: system-ui, sans-serif;
-		background: #13151a;
-		background-size: 224px;
+	}
+	body{
+		min-height: 100vh;
+		overflow: hidden;
+	}
+	h1{
+		font-family: Robot Slab;
+	}
+	p{
+		font-family: 'Space Grotesk';
 	}
 	code {
 		font-family:
@@ -70,34 +105,33 @@ const { title } = Astro.props;
 			Courier New,
 			monospace;
 	}
-	::view-transition-group(divaso) {
-		inset: auto 0 0;
-		height: 35vh;
-		background: url("https://cdn.glitch.global/b2a0e9e8-12a2-4158-b2d8-11ef08ab8d68/dust%20(1).avif?v=1676473942321") repeat-x bottom;
-		background-size: contain;
+	::view-transition-group(slide){
+		animation: none;
+	}
+	::view-transition-image-pair(slide){
+		isolation: auto;
+	}
+	::view-transition-new(slide),
+	::view-transition-old(slide){
+		mix-blend-mode: normal;
+		display: block;
+	}
+	#divaso{
+		position: absolute;
+		top: -100%;
+		left: -10vw;
+		/* top: 0; */
+		height: 100vh;
 		transform: none;
-		width: auto;
-		transform-origin: 50% 100%;
+		width: 120vw;
+		background: url("/assets/img/matrix_rain.png") repeat-x;
+		background-size:contain;
+		user-select: none;
+		pointer-events: none;
+		opacity: .4;
+		/* animation: fadeOutDiv 1.5s ease infinite backwards; */
 	}
 
-	::view-transition-group(divaso) {
-		height: 18vh;
-	}
-	::view-transition {
-  will-change: transform;
-  inset: 0;
-}
-
-::view-transition-image-pair(root) {
-  isolation: auto;
-}
-
-::view-transition-old(root),
-::view-transition-new(root) {
-  animation: none;
-  mix-blend-mode: normal;
-  display: block;
-}
 	@keyframes slideIn {
 		from{
 			transform:translateY(0%)
@@ -108,38 +142,45 @@ const { title } = Astro.props;
 	}
 	@keyframes slideOut {
 		from{
-			transform:translateY(-100vh)
+			clip-path: inset(0px 0px 100% 0px);
 		}
 		to{
-			transform:translateY(0%);
+			clip-path: inset(0px 0px 0px 0px);
+		}
+		/* from{
+			clip-path: circle(0% at 50% 50%)
+		}
+		to{
+			clip-path: circle(100% at 50% 50%);
+		} */
+	}
+	@keyframes fadeOutDiv {
+		0%{
+			transform: translate(0,0);
+		}
+		33%{
+			transform:  translate(-10vw, 100%);
+		}
+		67%{
+			transform: translate(5vw,150%);
+		}
+		100%{
+			transform: translate(-10vw, 200%);
 		}
 	}
-</style>
 
-<script>
-	document.addEventListener('astro:page-load',()=>{
-		const newDiv = document.createElement('div')
-		// @ts-ignore: Unreachable code error
-		newDiv.style.viewTransitionName = 'divaso'
-		newDiv.style.height = '40px'
-		newDiv.style.width = '40px'
-		newDiv.style.backgroundColor = '#F00'
-		document.body.append(newDiv)
-		console.log(newDiv)
-		document.documentElement.animate({
-			opacity:['1','0']
-		},{
-			duration: 500,
-			easing: 'ease-in',
-			pseudoElement: '::view-transition-group(divaso)'
-		})
-		document.documentElement.animate({
-			opacity:['1','0']
-		},{
-			duration: 500,
-			easing: 'ease-in',
-			pseudoElement: '::view-transition-group(divaso)'
-		})
-		
-	})
-</script>
+	@keyframes fadeInDiv {
+		0%{
+			transform: translate(0,0);
+		}
+		33%{
+			transform: translate(10vw, 100%);
+		}
+		67%{
+			transform: translate(-5vw,150%);
+		}
+		100%{
+			transform: translate(10vw, 200%);
+		}
+		}
+</style>
