@@ -5,39 +5,20 @@ import { MatrixWord } from '../components/MatrixWord.tsx';
 ---
 
 <Layout title="Welcome to Astro.">
-	<main>
+	<main class="flex flex-col align-center justify-center gap-12">
 		<MatrixWord word='DUARTE ELIAS DAVID' letterTime={2} animationTime={50} client:visible />
-		<p class="instructions">
-			To get started, open the directory <code>src/pages</code> in your project.<br />
-			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
-		</p>
-		<ul role="list" class="link-card-grid">
-			<Card
-				href="https://docs.astro.build/"
-				title="Documentation"
-				body="Learn how Astro works and explore the official API docs."
-			/>
-			<Card
-				href="https://astro.build/integrations/"
-				title="Integrations"
-				body="Supercharge your project with new frameworks and libraries."
-			/>
-			<Card
-				href="https://astro.build/themes/"
-				title="Themes"
-				body="Explore a galaxy of community-built starter themes."
-			/>
-			<Card
-				href="https://astro.build/chat/"
-				title="Community"
-				body="Come say hi to our amazing Discord community. ❤️"
-			/>
-			<Card
-				href="/about"
-				title="ABOUT"
-				body="Come say hi to our amazing Discord community. ❤️"
-			/>
-		</ul>
+		<div class="text-left flex flex-col instructions text-emerald-200 gap-2 font-mono text-md">
+			<div class="w-full h-7 px-1 flex justify-between nav">
+				<p>Welcome friend</p>
+				<p>- X</p>
+			</div>
+			<p class="px-2">
+				David@Duarte:~$ I am honored that you came here to know about me, so I'm a Full-Stack developer, I have been working with javascript and typescript in both front-end and back-end.
+				I developed applications with nodeJS, also I worked with React and Astro for web-apps. I have experience with DevOps, due I've been work with CI-CD pipelines in a OpenShift cluster.
+				If you want to know more about me, go and check the others sections, like experience or my projects. And if you want to work with me, let me know 
+				here<span class="animate-pulse">_</span>
+			</p>
+		</div>
 	</main>
 </Layout>
 
@@ -47,21 +28,14 @@ import { MatrixWord } from '../components/MatrixWord.tsx';
 	}
 	main {
 		margin: auto;
+		height: 100vh;
 		padding: 1rem;
 		width: 800px;
 		max-width: calc(100% - 2rem);
 		color: white;
-		font-size: 20px;
+		/* font-size: px; */
+		text-align: center;
 		line-height: 1.6;
-	}
-	.astro-a {
-		position: absolute;
-		top: -32px;
-		left: 50%;
-		transform: translatex(-50%);
-		width: 220px;
-		height: auto;
-		z-index: -1;
 	}
 	h1 {
 		font-size: 4rem;
@@ -70,35 +44,16 @@ import { MatrixWord } from '../components/MatrixWord.tsx';
 		text-align: center;
 		margin-bottom: 1em;
 	}
-	.text-gradient {
-		background-image: var(--accent-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 400%;
-		background-position: 0%;
-	}
 	.instructions {
+		text-align: left;
 		margin-bottom: 2rem;
-		border: 1px solid rgba(var(--accent-light), 25%);
-		background: linear-gradient(rgba(var(--accent-dark), 66%), rgba(var(--accent-dark), 33%));
-		padding: 1.5rem;
-		border-radius: 8px;
+		/* border: 1px solid rgba(var(--accent-light), 25%); */
+		background: transparent;
+		/* padding: 1.5rem; */
+		/* border-radius: 8px; */
+		box-shadow: 0px 10px 10px 2px #000a;
 	}
-	.instructions code {
-		font-size: 0.8em;
-		font-weight: bold;
-		background: rgba(var(--accent-light), 12%);
-		color: rgb(var(--accent-light));
-		border-radius: 4px;
-		padding: 0.3em 0.4em;
-	}
-	.instructions strong {
-		color: rgb(var(--accent-light));
-	}
-	.link-card-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-		gap: 2rem;
-		padding: 0;
+	.nav{
+		box-shadow: 0px 3px 3px 1px #000a;
 	}
 </style>
