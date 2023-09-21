@@ -1,5 +1,6 @@
 ---
 import { ViewTransitions } from 'astro:transitions';
+import Navbar from '../components/Navbar.astro';
 interface Props {
 	title: string;
 }
@@ -64,7 +65,10 @@ const { title } = Astro.props;
 		<ViewTransitions/>
 	</head>
 	<body transition:name="slide" transition:animate={slideDown}>
-		<slot/>
+		<main class="flex w-full h-full justify-between">
+			<slot/>
+			<Navbar/>
+		</main>
 		<div id="divaso" transition:name="divaso" transition:animate={fadeado}></div>
 	</body>
 </html>
