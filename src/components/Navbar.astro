@@ -6,10 +6,13 @@ interface Props {
 const { selected } = Astro.props;
 const locations = ['home','projects','experience','contact']
 ---
-<nav class="p-5 w-min">
+<nav class="p-5 w-min h-screen">
     <ul class="h-full text-green-500  text-5xl font-mda flex flex-col justify-around">
         {locations.map(loc=>(
-            <li class={loc === selected ? 'text-teal-200':''}><a href={`/${loc !== 'home' ? loc : ''}`}>{loc}</a></li>
+            <li class={loc === selected ? 'text-teal-200 selected':''}>
+                <a href={`/${loc !== 'home' ? loc : ''}`}>
+                    {loc}
+                </a></li>
         ))}
         <ul>
             <li><a href="https://linkedin.com">linkedin</a></li>
@@ -22,15 +25,18 @@ const locations = ['home','projects','experience','contact']
 
 <style>
     li{
-        transition: transform .2s cubic-bezier(.17,.67,.83,.67);
+        transition: all .2s cubic-bezier(.17,.67,.83,.67);
         text-transform: uppercase;
     }
     li:hover{
         transform: scale(1.1);
+        text-shadow: 0 0 35px #86efac;
     }
-    .selected{
-        background-color: #336633;
-        color: #111611;
-        transform: scale(1.1);
+    .selected > a{
+        cursor: default;
+    }
+    .selected:hover{
+        transform: none;
+        text-shadow: none;
     }
 </style>

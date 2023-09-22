@@ -10,7 +10,10 @@ module.exports = {
 				'mda-plus':'IBM_MDA_PLUS',
 				'botera':'BOTERA',
 				'botera-stencil':'BOTERA_STENCIL',
-			}
+			},
+			dropShadow: {
+				'neon': '0 0px 35px #86efac',
+			  }
 		},
 	},
 	plugins: [],

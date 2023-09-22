@@ -1,6 +1,7 @@
 export function matrixCanvas(){
 
     const canvas = document.createElement('canvas')
+    canvas.style.opacity = '.5'
     canvas.style.viewTransitionName = 'matrix'
     canvas.style.contain = 'paint'
     const ctx = canvas.getContext('2d')
@@ -44,3 +45,5 @@ export function matrixCanvas(){
     }
     return canvas
 }
+const canvas = matrixCanvas()
+document.body.append(canvas)

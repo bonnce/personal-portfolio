@@ -1,27 +1,20 @@
 ---
+import Navbar from "../components/Navbar.astro";
 import Layout from "../layouts/Layout.astro";
 
 ---
 
 <Layout title="Experience">
-    <main>
-        <h1 class="text-[#6e6] text-5xl text-center">Experience</h1>
+    <main class="flex w-full h-full justify-between">
+        <h1 class="text-green-500 text-5xl text-center">Experience</h1>
         <br>
-        <p class="text-[#3ea] text-2xl font-[Exo 2]"> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rem, velit quod quisquam consequuntur beatae unde 
-            perferendis nisi non harum adipisci dicta deserunt mollitia quae nemo similique voluptatibus id optio voluptatum.</p>
+        <p class="text-lime-300  text-2xl font-[Exo 2]"> <strong class="text-9xl text-indigo-600 font-botera-stencil font-medium">Lorem</strong> ipsum dolor sit amet consectetur adipisicing elit. Rem, velit quod quisquam consequuntur beatae unde 
+            perferendis nisi non harum adipisci dicta deserunt mollitia quae nemo similique voluptatibus id optio voluptatum.
+        </p>
+        <Navbar selected="experience"/>
     </main>
 </Layout>
 
 <style>
-    body{
-        display: flex;
-		background: #132013;
-        background-image: radial-gradient(circle, rgba(0,0,0,1) 0%, rgba(09,20,09,.5) 100%);
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
-    main{
-        width: 70%;
-    }
+
 </style>

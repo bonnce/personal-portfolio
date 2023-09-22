@@ -1,5 +1,6 @@
 ---
 import Navbar from "../components/Navbar.astro";
+import TerminalCard from "../components/TerminalCard.astro";
 import Layout from "../layouts/Layout.astro";
 
 ---
@@ -7,10 +8,17 @@ import Layout from "../layouts/Layout.astro";
 <Layout title="Projects">
     <main class="flex w-full h-full justify-between">
         <section>
-            <h1 class="text-[#6e6] text-5xl text-center">Projects</h1>
+            <h1 class="text-green-500 text-5xl uppercase text-center">Projects</h1>
             <br>
-            <p class="text-[#3ea] text-2xl font-[Exo 2]"> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rem, velit quod quisquam consequuntur beatae unde 
-                perferendis nisi non harum adipisci dicta deserunt mollitia quae nemo similique voluptatibus id optio voluptatum.</p>
+              <ul class="flex flex-wrap gap-5">
+                <TerminalCard title="Messi" body="Hola soy messi el mejor del mundo y te mando un fuerte abrazo pa'" href="google.com" img="https://pbs.twimg.com/media/FkbNNUYXkAMIn3F.jpg" alt="messi chikito"/>
+                <TerminalCard title="Messi" body="Hola soy messi el mejor del mundo y te mando un fuerte abrazo pa'" href="google.com" img="https://pbs.twimg.com/media/FkbNNUYXkAMIn3F.jpg" alt="messi chikito"/>
+                <TerminalCard title="Messi" body="Hola soy messi el mejor del mundo y te mando un fuerte abrazo pa'" href="google.com" img="https://pbs.twimg.com/media/FkbNNUYXkAMIn3F.jpg" alt="messi chikito"/>
+                <TerminalCard title="Messi" body="Hola soy messi el mejor del mundo y te mando un fuerte abrazo pa'" href="google.com" img="https://pbs.twimg.com/media/FkbNNUYXkAMIn3F.jpg" alt="messi chikito"/>
+                <TerminalCard title="Messi" body="Hola soy messi el mejor del mundo y te mando un fuerte abrazo pa'" href="google.com" img="https://pbs.twimg.com/media/FkbNNUYXkAMIn3F.jpg" alt="messi chikito"/>
+                <TerminalCard title="Messi" body="Hola soy messi el mejor del mundo y te mando un fuerte abrazo pa'" href="google.com" img="https://pbs.twimg.com/media/FkbNNUYXkAMIn3F.jpg" alt="messi chikito"/>
+                <TerminalCard title="Messi" body="Hola soy messi el mejor del mundo y te mando un fuerte abrazo pa'" href="google.com" img="https://pbs.twimg.com/media/FkbNNUYXkAMIn3F.jpg" alt="messi chikito"/>
+            </ul>
         </section>
         <Navbar selected="projects"/>
     </main>
@@ -19,7 +27,9 @@ import Layout from "../layouts/Layout.astro";
 
 <style>
     section{
+        margin: auto;
         width: 70%;
-        height: 100vh;
+        height: 100%
+        
     }
 </style>
