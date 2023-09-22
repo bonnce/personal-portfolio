@@ -1,0 +1,70 @@
+---
+interface Props {
+    duration: string | number
+    easing?: string
+}
+const { duration, easing } = Astro.props
+const TRANSITION_EASING = easing ?? 'cubic-bezier(.31,.06,.44,.46)'
+
+const matrixAnimation = {
+  old: {
+    name: 'falldown',
+    duration: duration,
+    easing: TRANSITION_EASING,
+    fillMode: 'backwards',
+  },
+  new: [{
+    name: 'falldown',
+    duration: duration,
+    easing: TRANSITION_EASING,
+    fillMode: 'forwards',
+  },
+  {
+    name: 'typing',
+    duration: duration,
+    easing: TRANSITION_EASING,
+    fillMode: 'both',
+  }]
+};
+
+const matrixTransition = {
+  forwards: matrixAnimation,
+  backwards: matrixAnimation,
+};
+---
+
+<div id="matrix" transition:name="matrix" transition:animate={matrixTransition}></div>
+
+<style>
+    #matrix{
+		position: absolute;
+		top: -100%;
+		left: -10vw;
+		height: 100vh;
+		transform: none;
+		width: 120vw;
+		background: url("/assets/img/matrix_rain.png") repeat-x;
+		background-size:contain;
+		user-select: none;
+		pointer-events: none;
+		opacity: .35;
+	}
+    @keyframes typing {
+        from{
+            left: -10vw;
+        }
+        to{
+            left: 5vw;
+        }
+    }
+    @keyframes falldown {
+		0%{
+			transform: translate(0,0);
+		}
+
+
+		100%{
+			transform: translate(0, 200%);
+		}
+	}
+</style>

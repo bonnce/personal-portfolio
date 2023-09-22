@@ -1,11 +1,13 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { MatrixWord } from '../components/MatrixWord.tsx';
+import Navbar from '../components/Navbar.astro';
 ---
 
 <Layout title="Welcome to Astro.">
-	<main class="flex flex-col align-center justify-center gap-12">
-		<MatrixWord word='DUARTE ELIAS DAVID' letterTime={2} animationTime={50} client:visible />
+	<main class="flex w-full h-full justify-between">
+		<section class="flex flex-col align-center justify-center gap-12">
+			<MatrixWord word='DUARTE ELIAS DAVID' letterTime={2} animationTime={50} client:visible />
 		<div class="text-left flex flex-col instructions text-emerald-200 gap-2 font-vga text-md">
 			<div class="w-full h-7 px-1 flex justify-between nav">
 				<p>Welcome friend</p>
@@ -18,14 +20,13 @@ import { MatrixWord } from '../components/MatrixWord.tsx';
 				here<span class="animate-pulse font-black">|</span>
 			</p>
 		</div>
+	</section>
+	<Navbar selected='home' />
 	</main>
 </Layout>
 
 <style>
-	body{
-		background: #201313;
-	}
-	main {
+	section {
 		margin: auto;
 		height: 100vh;
 		padding: 1rem;

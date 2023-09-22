@@ -1,57 +1,41 @@
 ---
 import { ViewTransitions } from 'astro:transitions';
-import Navbar from '../components/Navbar.astro';
+import MatrixTransition from '../components/MatrixTransition.astro';
 interface Props {
 	title: string;
 }
 
-const anim = {
+const TRANSITION_DURATION = 1000
+const NEW_DELAY = TRANSITION_DURATION/2
+const SLIDE_EASING = 'linear'
+const SLIDE_FILLMODE = 'both'
+
+const slideAnim = {
   old: {
     name: 'none',
-    duration: '1.5s',
-    easing: 'linear',
-    fillMode: 'both',
+    duration: TRANSITION_DURATION,
+    easing: SLIDE_EASING,
+    fillMode: SLIDE_FILLMODE,
   },
   new: {
     name: 'slideOut',
-		delay:'0.5s',
-    duration: '1s',
-    easing: 'linear',
-    fillMode: 'both',
+	delay:NEW_DELAY+'ms',
+    duration: TRANSITION_DURATION - NEW_DELAY,
+    easing: SLIDE_EASING,
+    fillMode: SLIDE_FILLMODE,
   }
 };
 
-const slideDown = {
-  forwards: anim,
-  backwards: anim,
-};
-
-const anim2 = {
-  old: {
-    name: 'fadeInDiv',
-    duration: '1.5s',
-    easing: 'linear',
-    // fillMode: 'forwards',
-    fillMode: 'backwards',
-  },
-  new: {
-    name: 'fadeOutDiv',
-    duration: '1.5s',
-    easing: 'linear',
-    fillMode: 'forwards',
-  }
-};
-
-const fadeado = {
-  forwards: anim2,
-  backwards: anim2,
+const slideTransition = {
+  forwards: slideAnim,
+  backwards: slideAnim,
 };
 
 const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en" transition:animate="none">
+<html lang="en">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content="Astro description" />
@@ -64,33 +48,20 @@ const { title } = Astro.props;
 		<title>{title}</title>
 		<ViewTransitions/>
 	</head>
-	<body transition:name="slide" transition:animate={slideDown}>
-		<main class="flex w-full h-full justify-between">
-			<slot/>
-			<Navbar/>
-		</main>
-		<div id="divaso" transition:name="divaso" transition:animate={fadeado}></div>
+	<body transition:name="slide" transition:animate={slideTransition}>
+		<slot/>
+		<MatrixTransition duration={TRANSITION_DURATION}/>
 	</body>
 </html>
 <style is:global>
-	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
-	}
 	html {
-		background: #101510;
+		background: #000;
 		font-family: system-ui, sans-serif;
 	}
 	body{
 		min-height: 100vh;
 		overflow: hidden;
+		background-color: #111611;
 	}
 	h1, h1> *{
 		font-family: 'SWIFT';
@@ -121,19 +92,6 @@ const { title } = Astro.props;
 		mix-blend-mode: normal;
 		display: block;
 	}
-	#divaso{
-		position: absolute;
-		top: -100%;
-		left: -10vw;
-		height: 100vh;
-		transform: none;
-		width: 120vw;
-		background: url("/assets/img/matrix_rain.png") repeat-x;
-		background-size:contain;
-		user-select: none;
-		pointer-events: none;
-		opacity: .4;
-	}
 
 	/* KEYFRAMES */
 
@@ -153,35 +111,6 @@ const { title } = Astro.props;
 			clip-path: inset(0px 0px 0px 0px);
 		}
 	}
-	@keyframes fadeOutDiv {
-		0%{
-			transform: translate(0,0);
-		}
-		33%{
-			transform:  translate(-10vw, 100%);
-		}
-		67%{
-			transform: translate(5vw,150%);
-		}
-		100%{
-			transform: translate(-10vw, 200%);
-		}
-	}
-
-	@keyframes fadeInDiv {
-		0%{
-			transform: translate(0,0);
-		}
-		33%{
-			transform: translate(10vw, 100%);
-		}
-		67%{
-			transform: translate(-5vw,150%);
-		}
-		100%{
-			transform: translate(10vw, 200%);
-		}
-		}
 
 		/* FUENTES */
 
