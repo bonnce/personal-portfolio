@@ -1,20 +1,18 @@
 ---
 import Navbar from "../components/Navbar.astro";
+import NeonTitle from "../components/NeonTitle.astro";
 import Layout from "../layouts/Layout.astro";
 
 ---
 
 <Layout title="Contact">
-    <main class="flex w-full h-full justify-between">
         <section>
 
-            <h1 class="text-[#6e6] text-5xl text-center">Contact</h1>
+            <NeonTitle className="text-5xl" title="Contact"/>
             <br>
             <p class="text-[#3ea] text-2xl font-[Exo 2]"> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rem, velit quod quisquam consequuntur beatae unde 
                 perferendis nisi non harum adipisci dicta deserunt mollitia quae nemo similique voluptatibus id optio voluptatum.</p>
             </section>
-        <Navbar selected="contact"/>
-    </main>
 </Layout>
 
 <style>

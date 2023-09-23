@@ -1,6 +1,7 @@
 ---
 import { ViewTransitions } from 'astro:transitions';
 import MatrixTransition from '../components/MatrixTransition.astro';
+import Navbar from '../components/Navbar.astro';
 interface Props {
 	title: string;
 }
@@ -43,14 +44,18 @@ const { title } = Astro.props;
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Exo+2&family=Merriweather+Sans&family=Roboto+Slab:wght@500&family=Space+Grotesk&family=Space+Mono&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&family=Merriweather+Sans&family=Roboto+Slab:wght@500&family=Space+Grotesk&family=Space+Mono&display=swap" rel="stylesheet">
 		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
+		<title class="capitalize">{title}</title>
 		<ViewTransitions/>
 	</head>
 	<body transition:name="slide" transition:animate={slideTransition}>
+	<main class="flex w-full h-full justify-between">
+
 		<slot/>
+		<Navbar selected={title} />
 		<MatrixTransition duration={TRANSITION_DURATION}/>
+	</main>
 	</body>
 </html>
 <style is:global>
@@ -64,11 +69,13 @@ const { title } = Astro.props;
 		background-color: #111611;
 	}
 	h1, h1> *{
-		font-family: 'BOTERA_STENCIL';
+		font-family: 'Space Mono';
+		/* font-weight: 800; */
+		letter-spacing: 1rem;
 		font-weight: 500;
 	}
 	p{
-		font-family: 'Space Mono';
+		font-family: 'IBM_VGA_PLUS2';
 	}
 	code {
 		font-family:
@@ -147,6 +154,12 @@ const { title } = Astro.props;
 		@font-face {
 			font-family: 'IBM_VGA_PLUS';
 			src: url('/assets/fonts/IBM_VGA/VGA_PLUS.ttf') format('ttf');
+			font-weight: normal;
+			font-style: normal;
+		}
+		@font-face {
+			font-family: 'IBM_VGA_PLUS2';
+			src: url('/assets/fonts/IBM_VGA/VGA_PLUS.woff') format('woff');
 			font-weight: normal;
 			font-style: normal;
 		}

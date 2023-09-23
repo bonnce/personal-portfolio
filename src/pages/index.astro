@@ -5,8 +5,7 @@ import Navbar from '../components/Navbar.astro';
 ---
 
 <Layout title="Welcome to Astro.">
-	<main class="flex w-full h-full justify-between">
-		<section class="flex flex-col align-center justify-center gap-12">
+		<section class="flex flex-col align-center justify-start gap-12">
 			<MatrixWord word='DUARTE ELIAS DAVID' letterTime={2} animationTime={50} client:visible />
 		<div class="text-left flex flex-col  text-green-300 gap-2 font-vga text-xl">
 			<!-- <div class="w-full h-7 px-1 flex justify-between nav">
@@ -21,8 +20,6 @@ import Navbar from '../components/Navbar.astro';
 			</p>
 		</div>
 	</section>
-	<Navbar selected='home' />
-	</main>
 </Layout>
 
 <style>

@@ -12,7 +12,7 @@ module.exports = {
 				'botera-stencil':'BOTERA_STENCIL',
 			},
 			dropShadow: {
-				'neon': '0 0px 35px #86efac',
+				'neon': '0 0px 15px #86efac',
 			  }
 		},
 	},

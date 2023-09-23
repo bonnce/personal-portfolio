@@ -7,9 +7,9 @@ const { selected } = Astro.props;
 const locations = ['home','projects','experience','contact']
 ---
 <nav class="p-5 w-min h-screen">
-    <ul class="h-full text-green-500  text-5xl font-mda flex flex-col justify-around">
+    <ul class="h-full text-green-500  text-5xl  flex flex-col justify-around">
         {locations.map(loc=>(
-            <li class={loc === selected ? 'text-teal-200 selected':''}>
+            <li class={loc === selected ? 'text-teal-200 selected':'hover:drop-shadow-neon'}>
                 <a href={`/${loc !== 'home' ? loc : ''}`}>
                     {loc}
                 </a></li>
@@ -27,10 +27,10 @@ const locations = ['home','projects','experience','contact']
     li{
         transition: all .2s cubic-bezier(.17,.67,.83,.67);
         text-transform: uppercase;
+        font-family: IBM_VGA_PLUS2;
     }
     li:hover{
         transform: scale(1.1);
-        text-shadow: 0 0 35px #86efac;
     }
     .selected > a{
         cursor: default;

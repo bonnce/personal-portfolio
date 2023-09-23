@@ -1,14 +1,16 @@
 ---
 import Navbar from "../components/Navbar.astro";
 import TerminalCard from "../components/TerminalCard.astro";
+import NeonTitle from "../components/NeonTitle.astro";
 import Layout from "../layouts/Layout.astro";
 
 ---
 
 <Layout title="Projects">
-    <main class="flex w-full h-full justify-between">
-        <section>
-            <h1 class="text-green-500 text-5xl uppercase text-center">Projects</h1>
+        <section class="h-full w-full flex flex-col justify-center align-center p-4 ">
+            <NeonTitle className="text-5xl" title="projects"/>
+            <!-- <h1 class="text-green-500 text-5xl uppercase text-center">Projects</h1> -->
+            
             <br>
               <ul class="flex flex-wrap gap-5">
                 <TerminalCard title="Messi" body="Hola soy messi el mejor del mundo y te mando un fuerte abrazo pa'" href="google.com" img="https://pbs.twimg.com/media/FkbNNUYXkAMIn3F.jpg" alt="messi chikito"/>
@@ -20,16 +22,14 @@ import Layout from "../layouts/Layout.astro";
                 <TerminalCard title="Messi" body="Hola soy messi el mejor del mundo y te mando un fuerte abrazo pa'" href="google.com" img="https://pbs.twimg.com/media/FkbNNUYXkAMIn3F.jpg" alt="messi chikito"/>
             </ul>
         </section>
-        <Navbar selected="projects"/>
-    </main>
 
 </Layout>
 
 <style>
-    section{
+    /* section{
         margin: auto;
         width: 70%;
         height: 100%
         
-    }
+    } */
 </style>
