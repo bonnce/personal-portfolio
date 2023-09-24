@@ -6,11 +6,9 @@ import Layout from "../layouts/Layout.astro";
 
 ---
 
-<Layout title="Projects">
-        <section class="h-full w-full flex flex-col justify-center align-center p-4 ">
-            <NeonTitle className="text-5xl" title="projects"/>
-            <!-- <h1 class="text-green-500 text-5xl uppercase text-center">Projects</h1> -->
-            
+<Layout title="projects">
+    <section class="p-5 flex flex-col items-center w-full h-full overflow-y-auto">
+        <NeonTitle className="text-5xl" title="projects"/>            
             <br>
               <ul class="flex flex-wrap gap-5">
                 <TerminalCard title="Messi" body="Hola soy messi el mejor del mundo y te mando un fuerte abrazo pa'" href="google.com" img="https://pbs.twimg.com/media/FkbNNUYXkAMIn3F.jpg" alt="messi chikito"/>

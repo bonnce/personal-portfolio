@@ -50,7 +50,7 @@ const { title } = Astro.props;
 		<ViewTransitions/>
 	</head>
 	<body transition:name="slide" transition:animate={slideTransition}>
-	<main class="flex w-full h-full justify-between">
+	<main class="flex w-full h-screen justify-between">
 
 		<slot/>
 		<Navbar selected={title} />
@@ -100,16 +100,31 @@ const { title } = Astro.props;
 		display: block;
 	}
 
+	::-webkit-scrollbar{
+		background-color: #111611;
+	}
+	::-webkit-scrollbar-thumb{
+		background-color: #86efac;
+		border-top:2px solid #111611;
+		border-bottom:2px solid #111611;
+	}
+	::-webkit-scrollbar-button{
+		background-color: #86efac;
+		border-width: 0px;
+		border-style: solid;
+		border-color: #111611;
+	}
+	::-webkit-scrollbar-button:single-button:decrement {
+  border-width: 0 8px 8px 8px;
+  border-color: transparent transparent #111611 transparent;
+}
+::-webkit-scrollbar-button:single-button:increment {
+  border-width: 8px 8px 0 8px;
+  border-color: #111611 transparent transparent transparent;
+}
+
 	/* KEYFRAMES */
 
-	@keyframes slideIn {
-		from{
-			transform:translateY(0%)
-		}
-		to{
-			transform:translateY(100vh);
-		}
-	}
 	@keyframes slideOut {
 		from{
 			clip-path: inset(0px 0px 100% 0px);

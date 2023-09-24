@@ -1,17 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { MatrixWord } from '../components/MatrixWord.tsx';
-import Navbar from '../components/Navbar.astro';
 ---
 
-<Layout title="Welcome to Astro.">
-		<section class="flex flex-col align-center justify-start gap-12">
+<Layout title="home">
+		<section class="flex flex-col items-center justify-center gap-12 w-2/3 m-auto">
 			<MatrixWord word='DUARTE ELIAS DAVID' letterTime={2} animationTime={50} client:visible />
 		<div class="text-left flex flex-col  text-green-300 gap-2 font-vga text-xl">
-			<!-- <div class="w-full h-7 px-1 flex justify-between nav">
-				<p>Welcome friend</p>
-				<p>- X</p>
-			</div> -->
 			<p class="px-2">
 				I am honored that you came here to know about me, so I'm a Full-Stack developer, I have been working with javascript and typescript in both front-end and back-end.
 				I developed applications with nodeJS, also I worked with React and Astro for web-apps. I have experience with DevOps, due I've been work with CI-CD pipelines in a OpenShift cluster.
@@ -21,39 +16,3 @@ import Navbar from '../components/Navbar.astro';
 		</div>
 	</section>
 </Layout>
-
-<style>
-	section {
-		margin: auto;
-		height: 100vh;
-		padding: 1rem;
-		/* width: 800px; */
-		width:70%;
-		color: white;
-		/* font-size: px; */
-		text-align: center;
-		line-height: 1.6;
-	}
-	h1 {
-		font-size: 4rem;
-		font-weight: 700;
-		line-height: 1;
-		text-align: center;
-		margin-bottom: 1em;
-	}
-	.instructions {
-		text-align: left;
-		margin-bottom: 2rem;
-		/* border: 1px solid rgba(var(--accent-light), 25%); */
-		background: transparent;
-		/* padding: 1.5rem; */
-		/* border-radius: 8px; */
-		box-shadow: 0px 10px 10px 2px #000a;
-	}
-	.animate-pulse{
-		font-family: Arial, Helvetica, sans-serif;
-	}
-	.nav{
-		box-shadow: 0px 3px 3px 1px #000a;
-	}
-</style>

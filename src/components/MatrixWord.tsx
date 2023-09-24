@@ -44,5 +44,5 @@ export const MatrixWord =(props: Props) =>{
     },[indexLetter])
 
     return (
-    <h1 class='text-green-500 text-7xl uppercase drop-shadow-neon'>{currentWord}<span class='text-teal-200'>{currentLetter}</span></h1>)
+    <h1 class='text-green-500 text-7xl uppercase drop-shadow-neon text-center'>{currentWord}<span class='text-teal-200'>{currentLetter}</span></h1>)
 }

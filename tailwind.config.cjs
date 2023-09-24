@@ -13,7 +13,7 @@ module.exports = {
 			},
 			dropShadow: {
 				'neon': '0 0px 15px #86efac',
-			  }
+			}
 		},
 	},
 	plugins: [],
