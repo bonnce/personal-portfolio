@@ -7,3 +7,33 @@ const {title, className} = Astro.props
 ---
 
 <h1 class={`text-green-500 drop-shadow-neon  text-center uppercase ${className ?? ''}`}>{title}</h1>
+
+<style>
+    /* h1::after{
+        content: "";
+        width: 5px;
+        height: 5px;
+        position: absolute;
+        background-color: #86efac;
+        top: 50%;
+        left: 50%;
+        box-shadow: 0 0 10px 5px #86efac;
+        z-index: 0;
+        transform: translate(-50%, -50%);
+        opacity: .5;
+    } */
+    h1::before{
+        content: "";
+        width: calc(100% + 2rem);
+        height: 3px;
+        position: absolute;
+        background-color: rgba(134, 239, 172,1);
+        top: 50%;
+        left: 50%;
+        box-shadow: 0 0 10px 3px #86efac;
+        z-index: 0;
+        transform: translate(-50%, -50%);
+        border-radius: 50% 50%;
+        opacity: .5;
+    }
+</style>

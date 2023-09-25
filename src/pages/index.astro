@@ -11,8 +11,22 @@ import { MatrixWord } from '../components/MatrixWord.tsx';
 				I am honored that you came here to know about me, so I'm a Full-Stack developer, I have been working with javascript and typescript in both front-end and back-end.
 				I developed applications with nodeJS, also I worked with React and Astro for web-apps. I have experience with DevOps, due I've been work with CI-CD pipelines in a OpenShift cluster.
 				If you want to know more about me, go and check the others sections, like experience or my projects. And if you want to work with me, let me know 
-				here<span class="animate-pulse font-black">|</span>
+				here<span class="pipe font-black">|</span>
 			</p>
 		</div>
 	</section>
 </Layout>
+
+<style>
+	.pipe{
+		animation: onlyfade .75s ease-out both alternate infinite;
+	}
+	@keyframes onlyfade {
+		from{
+			opacity: 1;
+		}
+		to{
+			opacity: 0;
+		}
+	}
+</style>
