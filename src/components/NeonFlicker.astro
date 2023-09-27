@@ -1,0 +1,54 @@
+---
+interface Props {
+  title:string
+}
+const {title} = Astro.props
+
+const splitTitle = title.split('')
+const firstLetter = splitTitle[0]
+const secondLetter = splitTitle[1]
+const thirdLetter = splitTitle[2]
+const remaining = title.substring(3)
+
+---
+
+<strong class="text-9xl text-teal-600 font-medium"><span id="first">{firstLetter}</span>{secondLetter}<span id="second">{thirdLetter}</span>{remaining}</strong>
+
+<style>
+  :root{
+      --teal-200:#6ee7b7;
+      --teal-300:#10b981;
+  }
+  strong {
+          font-family: 'Space Mono';
+          font-weight: 500;
+          text-shadow:
+          0 0 8px var(--teal-200),
+          0 0 12px var(--teal-200),
+          0 0 19px var(--teal-200),
+          0 0 40px var(--teal-300),
+          0 0 50px var(--teal-300);
+      }
+      #first{
+        animation: flicker-1 10s linear 10s infinite alternate;
+      }
+      #second{
+        animation: flicker-1 8s linear 11s infinite alternate;
+      }
+  @keyframes flicker-1 {
+      
+      0%, 14%, 16%, 20%, 22%, 24%, 54%, 56%, 100% {
+  
+          text-shadow:
+          0 0 8px var(--teal-200),
+          0 0 12px var(--teal-200),
+          0 0 19px var(--teal-200),
+          0 0 40px var(--teal-300),
+          0 0 50px var(--teal-300);        
+      }
+      
+      15%, 21%, 23%, 55% {        
+          text-shadow: none;
+      }    
+  }
+</style>

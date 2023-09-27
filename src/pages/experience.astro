@@ -1,5 +1,6 @@
 ---
 import Navbar from "../components/Navbar.astro";
+import NeonFlick from "../components/NeonFlicker.astro";
 import NeonTitle from "../components/NeonTitle.astro";
 import Layout from "../layouts/Layout.astro";
 
@@ -10,74 +11,8 @@ import Layout from "../layouts/Layout.astro";
 
             <NeonTitle className="text-5xl" title='experience'/>
             <br>
-            <p class="text-green-500 text-2xl"> <strong class="text-9xl text-teal-600 font-medium">Lorem</strong> ipsum dolor sit amet consectetur adipisicing elit. Rem, velit quod quisquam consequuntur beatae unde 
-                perferendis nisi non harum adipisci dicta deserunt mollitia quae nemo similique voluptatibus id optio voluptatum.
+            <p class="text-green-500 text-2xl"> <NeonFlick title="GMR" /> a consultant company where I been able to performance as a fullstack developer, next I will share
+                all of projects I've been involved.
             </p>
         </section>
 </Layout>
-
-<style>
-    :root{
-        --teal-200:#6ee7b7;
-        --teal-300:#10b981;
-        --teal-400 :#0d9488;
-    }
-    strong {
-            font-family: 'Space Mono';
-            /* font-weight: 800; */
-            /* letter-spacing: 1rem; */
-            font-weight: 500;
-            animation: flicker 10s linear 10s infinite alternate, pulsate 0.1s ease-in-out infinite alternate;
-            text-shadow:
-            0 0 8px var(--teal-200),
-            0 0 12px var(--teal-200),
-            0 0 19px var(--teal-200),
-            0 0 40px var(--teal-300),
-            0 0 50px var(--teal-300);
-            /* 0 0 60px var(--teal-300), */
-            /* 0 0 70px var(--teal-300), */
-            /* 0 0 80px var(--teal-300); */
-        }
-    @keyframes flicker {
-        
-        0%, 14%, 16%, 20%, 22%, 24%, 54%, 56%, 100% {
-    
-            text-shadow:
-            0 0 8px var(--teal-200),
-            0 0 12px var(--teal-200),
-            0 0 19px var(--teal-200),
-            0 0 40px var(--teal-300),
-            0 0 50px var(--teal-300);
-            /* 0 0 60px var(--teal-300),
-            0 0 70px var(--teal-300),
-            0 0 80px var(--teal-300); */
-            /* color: var(--teal-400); */
-        
-        }
-        
-        15%, 21%, 23%, 55% {        
-            text-shadow: none;
-            /* color: transparent; */
-        }    
-    }
-    @keyframes pulsate {
-        100% {
-            /* Larger blur radius */
-            text-shadow:
-            0 0 8px var(--teal-200),
-            0 0 12px var(--teal-200),
-            0 0 19px var(--teal-200),
-            0 0 40px var(--teal-300),
-            0 0 50px var(--teal-300);
-        }
-        0% {
-            /* A slightly smaller blur radius */
-            text-shadow:
-            0 0 8px var(--teal-200),
-            0 0 11px var(--teal-200),
-            0 0 17px var(--teal-200),
-            0 0 38px var(--teal-300),
-            0 0 45px var(--teal-300);
-        }
-        }
-</style>
