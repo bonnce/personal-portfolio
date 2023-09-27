@@ -5,11 +5,7 @@ module.exports = {
 		extend: {
 			fontFamily:{
 				'vga':'IBM_VGA',
-				'vga-plus':'IBM_VGA_PLUS',
-				'mda':'IBM_MDA',
-				'mda-plus':'IBM_MDA_PLUS',
-				'botera':'BOTERA',
-				'botera-stencil':'BOTERA_STENCIL',
+				'space-mono':'Space Mono'
 			},
 			dropShadow: {
 				'neon': '0 0px 15px #86efac',

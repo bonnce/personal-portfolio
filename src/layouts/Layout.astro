@@ -44,7 +44,8 @@ const { title } = Astro.props;
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&family=Merriweather+Sans&family=Roboto+Slab:wght@500&family=Space+Grotesk&family=Space+Mono&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
+		<link rel="preload" href="/assets/IBM_VGA/VGA_PLUS.woff" as="font" type="font/woff" crossorigin> 
 		<meta name="generator" content={Astro.generator} />
 		<title class="capitalize">{title}</title>
 		<ViewTransitions/>
@@ -74,12 +75,11 @@ const { title } = Astro.props;
 	}
 	h1, h1> *{
 		font-family: 'Space Mono';
-		/* font-weight: 800; */
 		letter-spacing: 1rem;
 		font-weight: 500;
 	}
 	p{
-		font-family: 'IBM_VGA_PLUS2';
+		font-family: 'IBM_VGA';
 	}
 	code {
 		font-family:
@@ -141,76 +141,9 @@ const { title } = Astro.props;
 		/* FUENTES */
 
 		@font-face {
-			font-family: 'IBM_MDA';
-			src: url('/assets/fonts/IBM_MDA/MDA.woff') format('woff');
-			font-weight: normal;
-			font-style: normal;
-		}
-		@font-face {
-			font-family: 'IBM_MDA';
-			src: url('/assets/fonts/IBM_MDA/MDA.ttf') format('ttf');
-			font-weight: normal;
-			font-style: normal;
-		}
-		@font-face {
-			font-family: 'IBM_MDA_PLUS';
-			src: url('/assets/fonts/IBM_MDA/MDA_PLUS.ttf') format('ttf');
-			font-weight: normal;
-			font-style: normal;
-		}
-		@font-face {
 			font-family: 'IBM_VGA';
-			src: url('/assets/fonts/IBM_VGA/VGA.woff') format('woff');
+			src: url('/assets/IBM_VGA/VGA_PLUS.woff') format('woff');
 			font-weight: normal;
 			font-style: normal;
-		}
-		@font-face {
-			font-family: 'IBM_VGA';
-			src: url('/assets/fonts/IBM_VGA/VGA.ttf') format('ttf');
-			font-weight: normal;
-			font-style: normal;
-		}
-		@font-face {
-			font-family: 'IBM_VGA_PLUS';
-			src: url('/assets/fonts/IBM_VGA/VGA_PLUS.ttf') format('ttf');
-			font-weight: normal;
-			font-style: normal;
-		}
-		@font-face {
-			font-family: 'IBM_VGA_PLUS2';
-			src: url('/assets/fonts/IBM_VGA/VGA_PLUS.woff') format('woff');
-			font-weight: normal;
-			font-style: normal;
-		}
-		@font-face {
-			font-family: 'BOTERA';
-			src: url('/assets/fonts/BoteraFont/Botera-Regular.otf') format('woff');
-			font-weight: normal;
-			font-style: normal;
-		}
-		@font-face {
-			font-family: 'BOTERA_STENCIL';
-			src: url('/assets/fonts/BoteraFont/Botera-RegularStencil.otf') format('woff');
-			font-weight: normal;
-			font-style: normal;
-		}
-		@font-face {
-			font-family: 'SWIFT';
-			src: url('/assets/fonts/Swift/Swift-04-Regular.otf') format('woff');
-			font-weight: normal;
-			font-style: normal;
-		}
-		@font-face {
-			font-family: 'SWIFTSC';
-			src: url('/assets/fonts/Swift/Swift-04-RegularSC.otf') format('woff');
-			font-weight: normal;
-			font-style: normal;
-		}
-		/* @font-face {
-			font-family: 'EMBERLY';
-			src: url('https://www.behance.net/gallery/87667103/Emberly-Free-Typeface-54-Styles/modules/513862583') format('woff');
-			font-weight: normal;
-			font-style: normal;
-		} */
-		
+		}		
 </style>
