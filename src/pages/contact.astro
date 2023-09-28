@@ -1,19 +1,86 @@
 ---
-import Navbar from "../components/Navbar.astro";
 import NeonTitle from "../components/NeonTitle.astro";
 import Layout from "../layouts/Layout.astro";
 
 ---
 
 <Layout title="contact">
-        <section class="flex flex-col justify-center items-center overflow-y-auto">
+	<section class="w-3/4 flex flex-col justify-center items-center overflow-y-auto overflow-x-hidden font-vga">
 
-            <NeonTitle className="text-5xl" title="Contact"/>
-            <br>
-            <p class="text-[#3ea] text-2xl font-[Exo 2]"> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rem, velit quod quisquam consequuntur beatae unde 
-                perferendis nisi non harum adipisci dicta deserunt mollitia quae nemo similique voluptatibus id optio voluptatum.</p>
-        </section>
+		<NeonTitle className="text-5xl" title="Contact with me"/>
+		<br>
+		<form class="flex flex-col gap-2 text-green-500"
+		action="mailto:eliasdavid9757@gmail.com" method="post" enctype="text/plain">
+			<label for="name">Name:</label>
+			<div class="input">
+				<input type="text" id="name" name="name" placeholder="John Doe" required>
+			</div>
+
+			<label for="email">E-mail:</label>
+			<div class="input">
+			<input type="email" id="email" name="email" placeholder="real-email@gmail.com" required>
+		</div>
+
+			<label for="message">Message:</label>
+			<textarea id="message" name="message" rows="4" cols="50" placeholder="Hello stranger..." required></textarea>
+
+			<input type="submit" class="hover:bg-lime-100 active:bg-green-900" value="Enviar">
+		</form>
+	</section>
 </Layout>
 
 <style>
+	input, textarea{
+		background-color: var(--green-500);
+		color:var(--bg-body);
+		font-size: 1.5rem;
+		font-weight: bold;
+		padding: .2rem;
+		position: relative;
+		width: 100%;
+	}
+	.input{
+		position: relative;
+	}
+	.input::before, .input::after{
+		z-index: 2;
+		content: "";
+		top: 0;
+		position: absolute;
+		width: 5rem;
+		height: 100%;
+		background-repeat: no-repeat; 
+		background-image: url("/assets/img/pppixelate.svg"); 
+		background-size: contain;
+		animation: wave .5s linear infinite alternate;
+	}
+	.input::after{
+		right: -5rem;
+	}
+	.input::before{
+		left: -5rem;
+		transform: scaleX(-1);
+	}
+	input::placeholder, textarea::placeholder{
+		color:#16a34a;
+	}
+	label{
+		text-transform: capitalize;
+		font-size: 2rem;
+		margin-top: 2rem;
+	}
+	input[type='submit']:hover{
+		transition: all .3s ease;
+	}
+	@keyframes wave {
+		40%,100%{
+			background-image: url("/assets/img/pppixelate.svg"); 
+		}
+		20%,60%{
+			background-image: url("/assets/img/pppixelate-3.svg"); 
+		}
+		0%,80%{
+			background-image: url("/assets/img/pppixelate-2.svg"); 
+		}
+	}
 </style>
