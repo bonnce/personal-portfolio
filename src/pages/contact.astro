@@ -5,12 +5,12 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="contact">
-	<section class="w-3/4 flex flex-col justify-center items-center overflow-y-auto overflow-x-hidden font-vga">
+	<section class="md:w-3/4 flex flex-col justify-center items-center overflow-y-auto overflow-x-hidden font-vga">
 
 		<NeonTitle className="text-5xl" title="Contact with me"/>
 		<br>
 		<form class="flex flex-col gap-2 text-green-500"
-		action="mailto:eliasdavid9757@gmail.com" method="get" enctype="text/plain" accept-charset="ISO-8859-1">
+		action="mailto:eliasdavid9757@gmail.com" method="get">
 			<label for="name">Name:</label>
 			<div class="input">
 				<input type="text" id="name" name="subject" placeholder="John Doe" required>

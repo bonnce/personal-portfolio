@@ -12,22 +12,22 @@ const remaining = title.substring(3)
 
 ---
 
-<strong class="text-9xl text-teal-600 font-medium"><span id="first">{firstLetter}</span>{secondLetter}<span id="second">{thirdLetter}</span>{remaining}</strong>
+<strong class="text-9xl text-amber-400 font-medium"><span id="first">{firstLetter}</span>{secondLetter}<span id="second">{thirdLetter}</span>{remaining}</strong>
 
 <style>
   :root{
-      --teal-200:#6ee7b7;
-      --teal-300:#10b981;
+      --emerald-300:#f2e768;
+      --emerald-500:#eddd27;
   }
   strong {
-          font-family: 'Space Mono';
+          font-family: 'Poiret One';
           font-weight: 500;
           text-shadow:
-          0 0 8px var(--teal-200),
-          0 0 12px var(--teal-200),
-          0 0 19px var(--teal-200),
-          0 0 40px var(--teal-300),
-          0 0 50px var(--teal-300);
+          0 0 8px var(--emerald-300),
+          0 0 12px var(--emerald-300),
+          0 0 19px var(--emerald-300),
+          0 0 40px var(--emerald-500),
+          0 0 50px var(--emerald-500);
       }
       #first{
         animation: flicker-1 10s linear 10s infinite alternate;
@@ -40,11 +40,11 @@ const remaining = title.substring(3)
       0%, 14%, 16%, 20%, 22%, 24%, 54%, 56%, 100% {
   
           text-shadow:
-          0 0 8px var(--teal-200),
-          0 0 12px var(--teal-200),
-          0 0 19px var(--teal-200),
-          0 0 40px var(--teal-300),
-          0 0 50px var(--teal-300);        
+          0 0 8px var(--emerald-300),
+          0 0 12px var(--emerald-300),
+          0 0 19px var(--emerald-300),
+          0 0 40px var(--emerald-500),
+          0 0 50px var(--emerald-500);        
       }
       
       15%, 21%, 23%, 55% {        
