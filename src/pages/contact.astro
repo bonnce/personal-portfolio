@@ -10,10 +10,10 @@ import Layout from "../layouts/Layout.astro";
 		<NeonTitle className="text-5xl" title="Contact with me"/>
 		<br>
 		<form class="flex flex-col gap-2 text-green-500"
-		action="mailto:eliasdavid9757@gmail.com" method="post" enctype="text/plain">
+		action="mailto:eliasdavid9757@gmail.com" method="get" enctype="text/plain" accept-charset="ISO-8859-1">
 			<label for="name">Name:</label>
 			<div class="input">
-				<input type="text" id="name" name="name" placeholder="John Doe" required>
+				<input type="text" id="name" name="subject" placeholder="John Doe" required>
 			</div>
 
 			<label for="email">E-mail:</label>
@@ -22,7 +22,7 @@ import Layout from "../layouts/Layout.astro";
 		</div>
 
 			<label for="message">Message:</label>
-			<textarea id="message" name="message" rows="4" cols="50" placeholder="Hello stranger..." required></textarea>
+			<textarea id="message" name="body" rows="4" cols="50" placeholder="Hello stranger..." required></textarea>
 
 			<input type="submit" class="hover:bg-lime-100 active:bg-green-900" value="Enviar">
 		</form>
@@ -42,6 +42,9 @@ import Layout from "../layouts/Layout.astro";
 	.input{
 		position: relative;
 	}
+	.input:has(input:focus)::after, .input:has(input:focus)::before {
+		animation: gone .3s ease forwards;
+	}
 	.input::before, .input::after{
 		z-index: 2;
 		content: "";
@@ -52,7 +55,8 @@ import Layout from "../layouts/Layout.astro";
 		background-repeat: no-repeat; 
 		background-image: url("/assets/img/pppixelate.svg"); 
 		background-size: contain;
-		animation: wave .5s linear infinite alternate;
+		transition: all .3s ease;
+		opacity: 1;
 	}
 	.input::after{
 		right: -5rem;
@@ -72,15 +76,18 @@ import Layout from "../layouts/Layout.astro";
 	input[type='submit']:hover{
 		transition: all .3s ease;
 	}
-	@keyframes wave {
-		40%,100%{
+	@keyframes gone {
+		0%{
 			background-image: url("/assets/img/pppixelate.svg"); 
 		}
-		20%,60%{
+		33%{
+			background-image: url("/assets/img/pppixelate-2.svg"); 
+		}
+		66%{
 			background-image: url("/assets/img/pppixelate-3.svg"); 
 		}
-		0%,80%{
-			background-image: url("/assets/img/pppixelate-2.svg"); 
+		100%{
+			background-image: url("/assets/img/pppixelate-4.svg"); 
 		}
 	}
 </style>
