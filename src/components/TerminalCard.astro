@@ -10,15 +10,15 @@ interface Props {
 const { href, title, body, img, alt } = Astro.props;
 ---
 
-<li class="w-72 h-96 text-green-500 p-5 flex flex-col text-xl card ">
+<li class="w-72 h-96 text-green-200 p-5 drop-shadow-blue-neon flex flex-col text-xl card ">
 
-		<div class="w-full flex justify-center text-[#111611] p-2 absolute left-0 title uppercase font-bold font-mda">
+		<div class="w-full flex justify-center p-2 absolute left-0 title uppercase font-bold font-mda">
 			
 		<h2>
 			{title}
 		</h2>
 	</div>
-	<a href={href} class="w-full flex flex-col h-auto p-2 relative overflow-hidden">
+	<a href={href} class="w-full flex flex-col justify-center h-auto p-2 relative overflow-hidden">
 		<img src={img} alt={alt} class="w-full min-h-0 relative"/>
 		<p>
 			{body}
@@ -26,9 +26,16 @@ const { href, title, body, img, alt } = Astro.props;
 	</a>
 </li>
 <style>
+  :root{
+    --dark-blue:#142c48;
+    --light-blue:#50c2dd;
+    --border-color:#2d6784;
+    --transparent-color:#244d67;
+    --width:100%;
+    --height:100%;
+  }
 	li {
-		/* box-shadow: 0 0 3px 1px var(--green-500); */
-    background-image: url('assets/img/card.svg');
+    background-image: url('assets/img/card-2.svg');
     background-repeat: no-repeat;
     background-size: 100% 100%;
     position: relative;
@@ -45,25 +52,15 @@ const { href, title, body, img, alt } = Astro.props;
     background-image: url('assets/img/titlecard.svg');
     background-repeat: no-repeat;
     background-size: 100% 100%;
+    /* color: var(--dark-blue); */
   }
 	img{
 		object-fit: cover;
-		transition: all .3s ease-out;
-    object-fit: cover;
-  mask-image: linear-gradient(45deg, transparent 10%, white 10%, white 90%, transparent 90%);
-  mask-size: 150%;
-  mask-repeat: no-repeat;
-  mask-position: center;
-  mix-blend-mode: saturation;
+    filter: none;
 	}
   a{
-    z-index: -1;
+    /* z-index: -1; */
     clip-path: polygon(23% 0, 100% 0, 100% 79%, 75% 100%, 0 100%, 0 20%);
-  }
-
-  :root{
-    --width:100%;
-    --height:100%;
   }
 
   .glitch{
@@ -227,11 +224,11 @@ const { href, title, body, img, alt } = Astro.props;
   }
 </style>
 
-<script >
-	onload = ()=>{
+<script>
+	// onload = ()=>{
 
-		const cards = document.querySelectorAll('.card')
-		cards.forEach((card) =>{
+		const card = document.querySelector('li')
+		// cards.forEach((card) =>{
 		const cardElement = card as HTMLLIElement
 		cardElement.onmouseenter =  function mouseEnter(e){
 			cardElement.classList.add('glitch', 'layers')
@@ -239,6 +236,6 @@ const { href, title, body, img, alt } = Astro.props;
 		cardElement.onmouseleave =function mouseLeave(e){
 			cardElement.classList.remove('glitch', 'layers')
 		}
-	})
-	}
+	// })
+	// }
 </script>

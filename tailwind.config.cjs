@@ -9,6 +9,7 @@ module.exports = {
 			},
 			dropShadow: {
 				'neon': '0 0px 15px #86efac',
+				'blue-neon':'0px 0px 4px #50c2dd'
 			}
 		},
 	},
