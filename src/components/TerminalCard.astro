@@ -10,7 +10,7 @@ interface Props {
 const { href, title, body, img, alt } = Astro.props;
 ---
 
-<li class="w-72 h-96 text-green-200 p-5 drop-shadow-blue-neon flex flex-col text-xl card ">
+<li data-glitch-card class="w-72 h-96 text-green-200 p-5 flex flex-col text-xl card glitch">
 
 		<div class="w-full flex justify-center p-2 absolute left-0 title uppercase font-bold font-mda">
 			
@@ -63,13 +63,13 @@ const { href, title, body, img, alt } = Astro.props;
     clip-path: polygon(23% 0, 100% 0, 100% 79%, 75% 100%, 0 100%, 0 20%);
   }
 
-  .glitch{
+  .glitch:hover{
     animation: glitch 3s linear infinite;
     position:relative;
   }
 
-  .glitch:before,
-  .glitch:after{
+  .glitch:hover:before,
+  .glitch:hover:after{
     content:"";
     position: absolute;
     left: 0;
@@ -86,16 +86,16 @@ const { href, title, body, img, alt } = Astro.props;
     animation: glitchTop linear 3s infinite, glitchClip 3s linear infinite;
     background-color: #111611;
     opacity: 0.8;
-    background-image: radial-gradient( ellipse farthest-corner at 10px 10px , #86efac, #86efac 50%, #111611 50%);
+    background-image: radial-gradient( ellipse farthest-corner at 10px 10px , var(--light-blue), var(--light-blue) 50%, var(--dark-blue) 50%);
     background-size: 10px 10px;
   }
   .glitch:after{
     scale: 1.15;
     transform: translateX(5%);
     animation: glitchBotom 3s linear infinite, glitchClip2 3s linear infinite;
-    background-color: #3b2740;
-    opacity: 0.8;
-    background: linear-gradient(135deg, #86f0d955 25%, transparent 25%) -10px 0/ 20px 20px, linear-gradient(225deg, #86f0d9 25%, transparent 25%) -10px 0/ 20px 20px, linear-gradient(315deg, #86f0d955 25%, transparent 25%) 0px 0/ 20px 20px, linear-gradient(45deg, #86f0d9 25%, #3b2740 25%) 0px 0/ 20px 20px; 
+    background-color: #141c28;
+    /* opacity: 0.8; */
+    /* background: linear-gradient(135deg, #86f0d955 25%, transparent 25%) -10px 0/ 20px 20px, linear-gradient(225deg, #86f0d9 25%, transparent 25%) -10px 0/ 20px 20px, linear-gradient(315deg, #86f0d955 25%, transparent 25%) 0px 0/ 20px 20px, linear-gradient(45deg, #86f0d9 25%, #3b2740 25%) 0px 0/ 20px 20px;  */
  }
 
   
@@ -223,19 +223,3 @@ const { href, title, body, img, alt } = Astro.props;
     }
   }
 </style>
-
-<script>
-	// onload = ()=>{
-
-		const card = document.querySelector('li')
-		// cards.forEach((card) =>{
-		const cardElement = card as HTMLLIElement
-		cardElement.onmouseenter =  function mouseEnter(e){
-			cardElement.classList.add('glitch', 'layers')
-		}
-		cardElement.onmouseleave =function mouseLeave(e){
-			cardElement.classList.remove('glitch', 'layers')
-		}
-	// })
-	// }
-</script>
