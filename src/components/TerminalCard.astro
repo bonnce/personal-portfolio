@@ -27,15 +27,13 @@ const { href, title, body, img, alt } = Astro.props;
 </li>
 <style>
   :root{
-    --dark-blue:#142c48;
-    --light-blue:#50c2dd;
-    --border-color:#2d6784;
-    --transparent-color:#244d67;
+    --dark-blue:#060709;
+    --light-blue:#2494b8;
     --width:100%;
     --height:100%;
   }
 	li {
-    background-image: url('assets/img/card-2.svg');
+    background-image: url('assets/img/card.svg');
     background-repeat: no-repeat;
     background-size: 100% 100%;
     position: relative;
@@ -52,14 +50,12 @@ const { href, title, body, img, alt } = Astro.props;
     background-image: url('assets/img/titlecard.svg');
     background-repeat: no-repeat;
     background-size: 100% 100%;
-    /* color: var(--dark-blue); */
   }
 	img{
 		object-fit: cover;
     filter: none;
 	}
   a{
-    /* z-index: -1; */
     clip-path: polygon(23% 0, 100% 0, 100% 79%, 75% 100%, 0 100%, 0 20%);
   }
 
@@ -93,15 +89,13 @@ const { href, title, body, img, alt } = Astro.props;
     scale: 1.15;
     transform: translateX(5%);
     animation: glitchBotom 3s linear infinite, glitchClip2 3s linear infinite;
-    background-color: #141c28;
-    /* opacity: 0.8; */
-    /* background: linear-gradient(135deg, #86f0d955 25%, transparent 25%) -10px 0/ 20px 20px, linear-gradient(225deg, #86f0d9 25%, transparent 25%) -10px 0/ 20px 20px, linear-gradient(315deg, #86f0d955 25%, transparent 25%) 0px 0/ 20px 20px, linear-gradient(45deg, #86f0d9 25%, #3b2740 25%) 0px 0/ 20px 20px;  */
+    background-color: #060709;
  }
 
   
   @keyframes glitch{
     2%,34%{
-      transform: translate(2px,0) skew(0deg);
+      transform: translate(2px,0) skew(-3deg);
     }
     4%,30%{
       transform: translate(-2px,0) skew(0deg);
