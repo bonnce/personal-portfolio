@@ -2,12 +2,12 @@
 interface Props {
 	title: string;
 	body: string;
-	href: string;
+	id: string;
 	img: string;
 	alt: string;
 }
 
-const { href, title, body, img, alt } = Astro.props;
+const { id, title, body, img, alt } = Astro.props;
 ---
 
 <li data-glitch-card class="w-72 h-96 text-green-200 p-5 flex flex-col text-xl card glitch">
@@ -18,7 +18,7 @@ const { href, title, body, img, alt } = Astro.props;
 			{title}
 		</h2>
 	</div>
-	<a href={href} class="w-full flex flex-col justify-center h-auto p-2 relative overflow-hidden">
+	<a href={`projects/${id}`} class="w-full flex flex-col justify-center h-auto p-2 relative overflow-hidden">
 		<img src={img} alt={alt} class="w-full min-h-0 relative"/>
 		<p>
 			{body}

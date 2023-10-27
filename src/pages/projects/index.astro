@@ -1,0 +1,27 @@
+---
+import ProjectCard from "../../components/ProjectCard.astro";
+import NeonTitle from "../../components/NeonTitle.astro";
+import Layout from "../../layouts/Layout.astro";
+import {projects} from "../../utils/projects_lists"
+
+---
+
+<Layout title="projects">
+    <section class="p-5 flex flex-col items-center w-full h-full overflow-y-auto overflow-x-hidden">
+        <NeonTitle className="text-5xl text-teal-200 drop-shadow-blue-neon" title="projects"/>            
+            <br>
+              <ul class="flex flex-wrap gap-5">
+                {projects.map(project=>
+                <ProjectCard title={project.title} body={project.description} id={project.id} img={project.img} alt={project.alt}/>
+                )}
+            
+              </ul>
+        </section>
+
+</Layout>
+
+<style>
+  body{
+    background-color: #04262c;
+  }
+</style>

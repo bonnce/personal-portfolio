@@ -1,0 +1,13 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { projects } from "../../utils/projects_lists";
+
+export function getStaticPaths () {
+ return projects.map(project => ({params: {id:project.id}}));
+}
+
+const {id} = Astro.params
+---
+<Layout title={`Project-${id}`}>
+<h2 class="text-5xl text-green-200">This is the project {id}</h2>
+</Layout>
