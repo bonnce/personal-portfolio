@@ -27,8 +27,8 @@ const { href, title, body, img, alt } = Astro.props;
 </li>
 <style>
   :root{
-    --dark-blue:#060709;
-    --light-blue:#2494b8;
+    --dark-green:#04262c;
+    --light-green:#2dc6b0;
     --width:100%;
     --height:100%;
   }
@@ -38,6 +38,9 @@ const { href, title, body, img, alt } = Astro.props;
     background-size: 100% 100%;
     position: relative;
 	}
+  a{
+    left:-1%;
+  }
   .title{
     top:0;
     translate: 0 -25%;
@@ -50,6 +53,7 @@ const { href, title, body, img, alt } = Astro.props;
     background-image: url('assets/img/titlecard.svg');
     background-repeat: no-repeat;
     background-size: 100% 100%;
+    filter:drop-shadow( 0 3px 1px  var(--dark-green));
   }
 	img{
 		object-fit: cover;
@@ -82,14 +86,14 @@ const { href, title, body, img, alt } = Astro.props;
     animation: glitchTop linear 3s infinite, glitchClip 3s linear infinite;
     background-color: #111611;
     opacity: 0.8;
-    background-image: radial-gradient( ellipse farthest-corner at 10px 10px , var(--light-blue), var(--light-blue) 50%, var(--dark-blue) 50%);
+    background-image: radial-gradient( ellipse farthest-corner at 10px 10px , var(--light-green), var(--light-green) 50%, var(--dark-green) 50%);
     background-size: 10px 10px;
   }
   .glitch:after{
     scale: 1.15;
     transform: translateX(5%);
     animation: glitchBotom 3s linear infinite, glitchClip2 3s linear infinite;
-    background-color: #060709;
+    background-color: var(--dark-green);
  }
 
   

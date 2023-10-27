@@ -3,9 +3,17 @@
  <!-- Created with SVG-edit - https://github.com/SVG-Edit/svgedit-->
  <style>
   *{
-    stroke:#2494b8;
-    fill:#2494b8;
+    stroke:#2dc6b0;
+    fill:#2dc6b0;
   }
+  #svg_16{
+    stroke:#2f6867;
+  }
+  #svg_28{
+    fill:#013739;
+    stroke:none;
+  }
+
  </style>
  <g class="layer">
   <title>border</title>
@@ -47,5 +55,6 @@
   <path d="m6.83,225.16l0,9l-5,-8l0,-9l5,8z" fill="#30bba6" id="svg_38" stroke="#30bba6"/>
   <path d="m268.21,134.96l6,-4l0,4c-1.87,1.33 -4.13,2.67 -6,4l0,-4z" fill="#30bba6" id="svg_42" stroke="#30bba6"/>
   <path d="m268.11,128.75l6,-4l0,4c-1.87,1.33 -4.13,2.67 -6,4l0,-4z" fill="#30bba6" id="svg_43" stroke="#30bba6"/>
+  <path d="m251.98,14.04l-186.67,0l-48.61,49.15l0,233.3l186.91,0.24l48.12,-48.91l0.24,-233.79z" fill="#244d67" fill-opacity="1" id="svg_28" stroke="#2d6784"/>
  </g>
 </svg>
