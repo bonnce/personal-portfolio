@@ -10,21 +10,23 @@ import Layout from "../layouts/Layout.astro";
 		<NeonTitle className="text-5xl" title="Contact with me"/>
 		<br>
 		<h2 class="text-center text-green-300 text-2xl w-1/2">If you want to contact with me, you can leave me a message via mail so...</h3>
-		<button class="relative text-teal-800 p-5 text-2xl m-5 font-bold border-b-4 border-lime-600 active:border-0 active:m-6 after:bg-green-300 before:bg-lime-200">Let me know!</button>
+		<a href="mailto:eliasdavid9757@gmail.com?body=Hello David..." class="button relative text-teal-800 p-5 text-2xl m-5 font-bold border-b-4 border-lime-600 active:border-0 active:m-6 after:bg-green-300 before:bg-lime-200">Let me know!</a>
 	</section>
 </Layout>
 
 <style>
-	button{
+	.button{
 		transition: all .1s ease-in;
 		overflow: none;
 		background-color: transparent;
+		cursor: pointer;
+		user-select: none;
 	}
-	button:hover::after{
+	.button:hover::after{
 	 width: 0;
 	 border-right: 2px solid white;
 	}
-	button::before, button::after{
+	.button::before, .button::after{
 		position: absolute;
 		top: 0;
 		left: 0;
