@@ -1,0 +1,88 @@
+<canvas id="matrixCanvas"></canvas>
+
+<script>
+  import { ALPHABET } from "../utils/constants";
+  const backgroundImage = new Image();
+  const backgroundImage2 = new Image();
+  backgroundImage.src = '/assets/img/skull.svg';
+  backgroundImage2.src = '/assets/img/skull-2.svg';
+  
+  const canvas = document.getElementById('matrixCanvas') as HTMLCanvasElement
+  const ctx = canvas.getContext('2d');
+  
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  
+  const charactersArray = ALPHABET.split('');
+  const fontSize = 12;
+  const columns = canvas.width / fontSize;
+  const drops:number[] = [];
+  let dataImage:Uint8ClampedArray;
+  let dataImage2:Uint8ClampedArray;
+  let clock = 0;
+  const DURATION = 200;
+  
+  for (let i = 0; i < columns; i++) {
+    drops[i] = 0;
+  }
+  backgroundImage.onload = function(){
+    if(ctx){
+      ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
+      dataImage = ctx.getImageData(0, 0, canvas.width , canvas.height).data
+      ctx.drawImage(backgroundImage2, 0, 0, canvas.width, canvas.height);
+      dataImage2 = ctx.getImageData(0, 0, canvas.width , canvas.height).data
+      ctx.fillStyle = 'rgba(0, 0, 0, 1)';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+    }
+  }
+
+  function draw() {
+    if(ctx){
+      ctx.fillStyle = 'rgba(0, 0, 0, .015)';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      for (let i = 0; i < drops.length; i++) {
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+          drops[i] = 0;
+        }
+    
+        const x = i * fontSize;
+        const y = drops[i] * fontSize;
+        const indice = (y * canvas.width + x) * 4;
+  
+        let pixel = [dataImage[indice],dataImage[indice+1],dataImage[indice+2],dataImage[indice+3]]
+        if(clock > DURATION){
+          pixel = [dataImage2[indice],dataImage2[indice+1],dataImage2[indice+2],dataImage2[indice+3]]
+        }
+        if(clock > DURATION*2){
+          clock = 0
+        }
+        const opacidad = Math.floor(((pixel[0] + pixel[1] + pixel[2]) / 765)*1000)/1000;
+  
+        ctx.fillStyle = `rgba(0, ${255*(opacidad)}, 0, 1)`;
+        if(opacidad == 0){
+        ctx.fillRect(x, y,fontSize,fontSize);
+  
+        }else{
+          const text = charactersArray[Math.floor(Math.random() * charactersArray.length)];
+          ctx.font = `${fontSize}px arial`;
+          ctx.fillText(text, x, y);
+  
+        }
+        
+    
+        drops[i]++;
+      }
+    }
+  }
+  
+  setInterval(()=>{
+    draw();
+    clock++
+  },800/60)
+  </script>
+
+<style>
+    img{
+      object-fit: cover;
+    }
+  </style>
