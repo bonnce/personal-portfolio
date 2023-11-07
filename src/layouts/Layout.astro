@@ -47,7 +47,7 @@ const { title } = Astro.props;
 		<link href="https://fonts.googleapis.com/css2?family=Space+Mono&family=Poiret+One&family=Orbitron&display=swap" rel="stylesheet">
 		<link rel="preload" href="/assets/IBM_VGA/VGA_PLUS.woff" as="font" type="font/woff" crossorigin> 
 		<meta name="generator" content={Astro.generator} />
-		<title class="capitalize">{title}</title>
+		<title>{title}</title>
 		<ViewTransitions/>
 	</head>
 	<body transition:name="slide" transition:animate={slideTransition}>
