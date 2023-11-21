@@ -1,4 +1,5 @@
 ---
+import BurgerNav from './BurgerNav.astro';
 interface Props {
 	selected:string;
 }
@@ -6,22 +7,25 @@ interface Props {
 const { selected } = Astro.props;
 const locations = ['home','projects','experience','contact']
 ---
-<nav class="p-5 w-min h-screen">
-    <ul class="h-full text-green-500  text-5xl  flex flex-col justify-around">
-        {locations.map(loc=>(
-            <li class={loc === selected ? 'text-teal-200 selected':'hover:drop-shadow-neon'}>
-                <a href={`/${loc !== 'home' ? loc : ''}`}>
-                    {loc}
-                </a></li>
-        ))}
-        <ul class="flex flex-wrap gap-5">
-            <li class="w-full basis-1/3 aspect-square hover:drop-shadow-neon"><a href="https://www.linkedin.com/in/david-duarte-39521519a/"><img class="w-full" src="/assets/img/linkedin.svg" alt="linkedin"></a></li>
-            <li class="w-full basis-1/3 aspect-square hover:drop-shadow-neon"><a href="https://mail.google.com/mail/?view=cm&source=mailto&to=eliasdavid9757@gmail.com&body=Hello David..."><img class="w-full" src="/assets/img/gmail.svg" alt="gmail"></a></li>
-            <li class="w-full basis-1/3 aspect-square hover:drop-shadow-neon"><a href="https://github.com/bonnce"><img class="w-full" src="/assets/img/github.svg" alt="github"></a></li>
-            <li class="w-full basis-1/3 aspect-square hover:drop-shadow-neon"><a href="https://codepen.io/bonnce"><img class="w-full" src="/assets/img/codepen.svg" alt="codepen"></a></li>
+<BurgerNav>
+
+    <nav class="p-5 w-min h-screen">
+        <ul class="h-full text-green-500  text-5xl  flex flex-col justify-around">
+            {locations.map(loc=>(
+                <li class={loc === selected ? 'text-teal-200 selected':'hover:drop-shadow-neon'}>
+                    <a href={`/${loc !== 'home' ? loc : ''}`}>
+                        {loc}
+                    </a></li>
+            ))}
+            <ul class="flex flex-wrap gap-5">
+                <li class="w-full basis-1/3 aspect-square hover:drop-shadow-neon"><a href="https://www.linkedin.com/in/david-duarte-39521519a/"><img class="w-full" src="/assets/img/linkedin.svg" alt="linkedin"></a></li>
+                <li class="w-full basis-1/3 aspect-square hover:drop-shadow-neon"><a href="https://mail.google.com/mail/?view=cm&source=mailto&to=eliasdavid9757@gmail.com&body=Hello David..."><img class="w-full" src="/assets/img/gmail.svg" alt="gmail"></a></li>
+                <li class="w-full basis-1/3 aspect-square hover:drop-shadow-neon"><a href="https://github.com/bonnce"><img class="w-full" src="/assets/img/github.svg" alt="github"></a></li>
+                <li class="w-full basis-1/3 aspect-square hover:drop-shadow-neon"><a href="https://codepen.io/bonnce"><img class="w-full" src="/assets/img/codepen.svg" alt="codepen"></a></li>
+            </ul>
         </ul>
-    </ul>
-</nav>
+    </nav>
+</BurgerNav>
 
 <style>
     li{

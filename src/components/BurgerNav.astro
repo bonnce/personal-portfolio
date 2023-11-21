@@ -1,0 +1,26 @@
+<div class="w-min h-screen">
+    <label for="burger" class="w-2 h-2 p-2 absolute right-2 top-0 z-10 text-white cursor-pointer md:hidden">
+    X
+    </label>
+    <input type="checkbox" name="burger" id="burger" class="hidden">
+    <aside class="absolute right-0 md:relative md:translate-x-0">
+        <slot/>
+    </aside>
+</div>
+
+<style>
+    aside{
+        background-color: var(--bg-body);
+        transform: translateX(0);
+        transition: all .3s ease;
+    }
+    input[type=checkbox]:checked + aside{
+        transform: translateX(110%);
+        display: none;
+    }
+    @keyframes fadeout {
+        100%{
+            opacity: 0;
+        }        
+    }
+</style>
