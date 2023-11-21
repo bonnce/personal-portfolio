@@ -1,26 +1,55 @@
-<div class="w-min h-screen">
-    <label for="burger" class="w-2 h-2 p-2 absolute right-2 top-0 z-10 text-white cursor-pointer md:hidden">
-    X
-    </label>
-    <input type="checkbox" name="burger" id="burger" class="hidden">
-    <aside class="absolute right-0 md:relative md:translate-x-0">
-        <slot/>
-    </aside>
-</div>
+<!-- <div class="w-min z-10 absolute md:relative right-0 overflow-hidden select-none	pointer-events-none"> -->
+	<label
+		for="burger"
+		class="w-16 h-16 absolute z-20 right-2 top-2 text-white cursor-pointer md:hidden container"
+	>
+		<input type="checkbox" name="burger" id="burger" class="hidden" />
+		<div class="block text-2xl relative w-full h-full">
+			<i class="burger-icon"></i>
+			<i class="cross-icon"></i>
+		</div>
+	</label>
+	<aside class="absolute md:relative h-screen w-min right-0 z-10 translate-x-full md:translate-x-0">
+		<slot />
+	</aside>
+<!-- </div> -->
 
 <style>
-    aside{
-        background-color: var(--bg-body);
-        transform: translateX(0);
-        transition: all .3s ease;
-    }
-    input[type=checkbox]:checked + aside{
-        transform: translateX(110%);
-        display: none;
-    }
-    @keyframes fadeout {
-        100%{
-            opacity: 0;
-        }        
-    }
+	aside {
+		background-color: var(--bg-body);
+		transition: all 0.3s ease;
+	}
+	label:has(input[type="checkbox"]:checked) + aside {
+		transform: translateX(0%);
+	}
+
+	/* burger */
+	.container {
+		perspective: 1000px;
+	}
+	.block {
+		transform-style: preserve-3d;
+		transition: transform 0.5s;
+	}
+
+	.burger-icon,
+	.cross-icon {
+		position: absolute;
+		-webkit-backface-visibility: hidden;
+		backface-visibility: hidden;
+		width: 100%;
+		height: 100%;
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+	.burger-icon {
+		background-image: url("/assets/img/cross.svg");
+		transform: rotateY(180deg);
+	}
+	.cross-icon {
+		background-image: url("/assets/img/burger.svg");
+	}
+	label:has(input[type="checkbox"]:checked) .block {
+		transform: rotateY(540deg);
+	}
 </style>

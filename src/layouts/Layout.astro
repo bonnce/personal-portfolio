@@ -40,7 +40,7 @@ const { title } = Astro.props;
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -51,7 +51,7 @@ const { title } = Astro.props;
 		<ViewTransitions/>
 	</head>
 	<body transition:name="slide" transition:animate={slideTransition}>
-	<main class="flex w-full h-screen justify-between">
+	<main class="flex w-screen h-screen justify-between overflow-hidden relative">
 
 		<slot/>
 		<Navbar selected={title} />
