@@ -1,4 +1,3 @@
-<!-- <div class="w-min z-10 absolute md:relative right-0 overflow-hidden select-none	pointer-events-none"> -->
 	<label
 		for="burger"
 		class="w-12 h-12 absolute z-20 right-4 top-4 text-white cursor-pointer md:hidden container"
@@ -9,14 +8,12 @@
 			<i class="cross-icon"></i>
 		</div>
 	</label>
-	<aside class="absolute md:relative h-screen w-min right-0 z-10 translate-x-full md:translate-x-0">
+	<aside class="absolute md:relative h-screen w-min right-0 z-10 translate-x-full md:translate-x-0 bg-[var(--bg-body)] md:bg-transparent">
 		<slot />
 	</aside>
-<!-- </div> -->
 
 <style>
 	aside {
-		background-color: var(--bg-body);
 		transition: all 0.3s ease;
 	}
 	label:has(input[type="checkbox"]:checked) + aside {

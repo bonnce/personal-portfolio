@@ -12,7 +12,7 @@ import {projects} from "../../utils/projects_lists"
             <br>
               <ul class="flex flex-wrap gap-5 justify-center md:justify-start">
                 {projects.map(project=>
-                <ProjectCard title={project.title} body={project.description} id={project.id} img={project.img} alt={project.alt}/>
+                <ProjectCard title={project.id} body={project.description} id={project.id} img={project.img} alt={project.alt}/>
                 )}
             
               </ul>
