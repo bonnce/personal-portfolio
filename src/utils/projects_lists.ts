@@ -25,7 +25,7 @@ export const projects = [
 		alt:'shopping list app screenshot'
 	},
 	{
-		id:'ARGO&TEKTON',
+		id:'ARGO TEKTON',
 		description:"CI/CD pipeline to enhance development efficiency using ArgoCD and Tekton.",
 		descriptionExtended:"The primary goal of this project was to improve efficiency and the development experience, making it easy to maintain and scale. The project was divided into two parts. The first part involves continuous integration (CI) using Tekton, where the goal is to initiate with a trigger for an approval pull request to merge into the master branch. Subsequently, it builds and uploads a Docker image to an image repository, concluding the flow by modifying the necessary Kustomize resources for redeploying the application. The second part uses ArgoCD synchronized with resources, listening and redeploying when changes occur. This setup facilitates monitoring and scaling.",
 		title:'CICD WITH ARGOCD AND TEKTON',
@@ -49,7 +49,7 @@ export const projects = [
 		alt:'nodejs and python'
 	},
 	{
-		id:'landing page',
+		id:'lading page',
 		description:"Design and development from scratch using React.js with dynamic animations.",
 		descriptionExtended:" I was involved in designing with Figma and developing the web app using React.js and Typescript. The main goal was to create a static web page with engaging elements and dynamic animations, showcasing the company's offerings to attract potential clients.",
 		title:'Landing page',

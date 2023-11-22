@@ -14,11 +14,11 @@ const { id, title, body, img, alt } = Astro.props;
 
 		<div class="w-full flex justify-center p-2 absolute left-0 title uppercase font-bold font-mda">
 			
-		<h2>
+		<h2 class="py-1 px-3 text-lg">
 			{title}
 		</h2>
 	</div>
-	<a href={`projects/${id}`} class="w-full flex flex-col justify-center h-auto p-2 relative overflow-hidden">
+	<a href={`projects/${id}`} class="w-full min-h-full flex flex-col justify-start h-auto p-2 relative overflow-hidden">
 		<img src={img} alt={alt} class="w-full min-h-0 relative"/>
 		<p>
 			{body}
@@ -43,12 +43,12 @@ const { id, title, body, img, alt } = Astro.props;
   }
   .title{
     top:0;
-    translate: 0 -25%;
+    translate: 0 calc(-23% - 0.25rem);
     height: min-content;
     z-index: 1;
   }
   h2{
-    width: 55%;
+    width: 58%;
     text-align: center;
     background-image: url('/assets/img/titlecard.svg');
     background-repeat: no-repeat;
