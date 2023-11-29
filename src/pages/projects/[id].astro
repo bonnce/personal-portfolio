@@ -1,4 +1,5 @@
 ---
+import Carousel from "../../components/Carousel.astro";
 import Layout from "../../layouts/Layout.astro";
 import { projects } from "../../utils/projects_lists";
 
@@ -17,8 +18,9 @@ const project = projects.filter(pro => pro.id === id)[0]
       <span id="gradient"></span>
       <h2 class="absolute text-center text-5xl md:text-6xl text-teal-100 z-10 uppercase font-space-mono tracking-widest font-bold drop-shadow-shadow">{project.title}</h2>
     </div>
+    <Carousel/>
     <div class="w-full flex flex-col items-center justify-start">
-      <p class="text-green-300 mt-[-2rem] text-2xl md:w-3/4 z-10">
+      <p class="text-green-300 text-2xl md:w-3/4 z-10">
         {project.descriptionExtended}
       </p>  
     </div>

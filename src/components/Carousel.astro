@@ -1,0 +1,37 @@
+<div class="relative w-[32rem] mb-4 mt-[-2rem] w-min-full h-20 z-20 mx-auto overflow-hidden">
+  <div class="container w-fit h-full flex">
+    <div class="bloque bg-red-300"></div>
+    <div class="bloque bg-teal-300"></div>
+    <div class="bloque bg-lime-300"></div>
+    <div class="bloque bg-green-300"></div>
+    <div class="bloque bg-red-300"></div>
+    <div class="bloque bg-teal-300"></div>
+    <div class="bloque bg-lime-300"></div>
+    <div class="bloque bg-green-300"></div>
+    <div class="bloque bg-red-300"></div>
+  </div>
+</div>
+
+<style>
+  *{
+    --block-size: 7rem;
+    --block-gap: 2rem;
+    --block-quantity: 5;
+    --gap-quantity: calc( var(--block-quantity) - 1);
+  }
+  .bloque{
+    height: 100%;
+    width: var(--block-size);
+  }
+  .container{
+    position: relative;
+    translate: calc(-100% + (var(--block-size) * var(--block-quantity) + var(--block-gap) * var(--gap-quantity)));
+    gap: var(--block-gap);
+    animation: slide-left 5s linear infinite;
+  }
+  @keyframes slide-left {
+    to{
+      translate: 0;
+    }
+  }
+</style>
