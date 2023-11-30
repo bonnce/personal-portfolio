@@ -1,33 +1,49 @@
-<div class="relative w-[32rem] mb-4 mt-[-2rem] w-min-full h-20 z-20 mx-auto overflow-hidden">
-  <div class="container w-fit h-full flex">
-    <div class="bloque bg-red-300"></div>
-    <div class="bloque bg-teal-300"></div>
-    <div class="bloque bg-lime-300"></div>
-    <div class="bloque bg-green-300"></div>
-    <div class="bloque bg-red-300"></div>
-    <div class="bloque bg-teal-300"></div>
-    <div class="bloque bg-lime-300"></div>
-    <div class="bloque bg-green-300"></div>
-    <div class="bloque bg-red-300"></div>
+---
+interface Props {
+  blockQuantity: number;
+}
+const {blockQuantity} = Astro.props
+const gapQuantity= blockQuantity - 1
+const dur = `${blockQuantity}s`
+---
+<div class="relative w-[32rem] mb-4 mt-[-2rem] w-min-full h-20 z-20 mx-auto overflow-hidden wrapper">
+  <div id="carousel" class="w-max h-full flex">
+    <slot/>
   </div>
 </div>
 
-<style>
+<style define:vars={{blockQuantity, gapQuantity, dur}}>
   *{
     --block-size: 7rem;
     --block-gap: 2rem;
-    --block-quantity: 5;
-    --gap-quantity: calc( var(--block-quantity) - 1);
   }
-  .bloque{
+  #carousel :global(img){
     height: 100%;
     width: var(--block-size);
+    background-position: 0 50%;
   }
-  .container{
+  #carousel{
     position: relative;
-    translate: calc(-100% + (var(--block-size) * var(--block-quantity) + var(--block-gap) * var(--gap-quantity)));
+    translate: calc(-100% + (var(--block-size) * var(--blockQuantity) + var(--block-gap) * var(--gapQuantity)));
     gap: var(--block-gap);
-    animation: slide-left 5s linear infinite;
+    animation: slide-left var(--dur) linear infinite;
+  }
+  .wrapper::before,
+  .wrapper::after{
+    content: '';
+    width: 10%;
+    height: 100%;
+    position: absolute;
+    top:0;
+    z-index: 1;
+  }
+  .wrapper::after{
+    left: 0;
+    background: linear-gradient(90deg, #04262c 20%, transparent 100%); 
+  }
+  .wrapper::before{
+    right: 0;
+    background: linear-gradient(270deg, #04262c 20%, transparent 100%); 
   }
   @keyframes slide-left {
     to{
