@@ -13,6 +13,7 @@
   "dependencies": {
     "@astrojs/preact": "^3.0.0",
     "@astrojs/tailwind": "^5.0.0",
+    "@astrojs/vercel": "^5.2.0",
     "astro": "^3.0.12",
     "preact": "^10.6.5",
     "tailwindcss": "^3.0.24"
@@ -27,5 +28,5 @@
     "Matrix"
   ],
   "author": "Elias David Duarte",
-  "license":"MIT"
+  "license": "MIT"
 }
