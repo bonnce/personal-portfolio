@@ -1,0 +1,21 @@
+{
+    "short_name": "David's Portfolio",
+    "name": "David's Portfolio",
+    "manifest_version":2,
+    "author":"eliasdavid_rcia@hotmail.com",
+    "version":"1.0",
+    "icons": [
+      {
+        "src": "/favicon.svg",
+        "type": "image/svg+xml",
+        "sizes": "512x512"
+      }
+    ],
+    "id": "/",
+    "start_url": "/",
+    "background_color": "#111116",
+    "display": "standalone",
+    "scope": "/",
+    "theme_color": "#111116",
+    "description": "David's portfolio, built with the Astro framework, incorporates both Preact and Tailwind."
+  }

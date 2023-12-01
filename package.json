@@ -1,7 +1,8 @@
 {
   "name": "personal-portfolio",
   "type": "module",
-  "version": "0.0.1",
+  "version": "1.0.0",
+  "description": "David's portfolio made in Astro with preact and tailwind",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -15,5 +16,16 @@
     "astro": "^3.0.12",
     "preact": "^10.6.5",
     "tailwindcss": "^3.0.24"
-  }
+  },
+  "keywords": [
+    "portfolio",
+    "David",
+    "Elias",
+    "portfolio David",
+    "portfolio Elias",
+    "Astro",
+    "Matrix"
+  ],
+  "author": "Elias David Duarte",
+  "license":"MIT"
 }
