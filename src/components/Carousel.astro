@@ -6,7 +6,7 @@ const {blockQuantity} = Astro.props
 const gapQuantity= blockQuantity - 1
 const dur = `${blockQuantity}s`
 ---
-<div class="relative w-[32rem] mb-4 mt-[-2rem] w-min-full h-20 z-20 mx-auto overflow-hidden wrapper">
+<div class="relative w-full md:w-[32rem] mb-4 mt-[-2rem] w-min-full h-20 z-20 mx-auto overflow-hidden wrapper">
   <div id="carousel" class="w-max h-full flex">
     <slot/>
   </div>
