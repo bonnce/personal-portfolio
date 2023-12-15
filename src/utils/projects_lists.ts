@@ -1,5 +1,20 @@
 export const projects = [
 	{
+		id:'PORTFOLIO',
+		tools:['TS','PREACT','ASTRO','TAILWIND','VERCEL','GITHUB'],
+		description:"This project, serving as my portfolio, is built using the JS framework Astro.",
+		descriptionExtended:`The portfolio design was inspired by old green screen interfaces, reminiscent of IBM machines, 
+		and evokes the atmosphere of The Matrix movie. The project was created using the Astro framework with TypeScript, 
+		incorporating innovative and engaging features such as Astro View Transition for smooth page transitions and faster 
+		loading. Additionally, it offers the flexibility to utilize integrations like Tailwind for styling and Preact for 
+		reactive animations, which require state management and only load the necessary JavaScript when needed.`,
+		title:'My portfolio',
+		img:'/assets/img/screenshot-portfolio.png',
+		alt:'portfolio screenshot',
+		web:'https://david-portfolio-edd.vercel.app/',
+		github:'https://github.com/bonnce/personal-portfolio'
+	},
+	{
 		id:'INVESTMENT',
 		tools:['TS','REACT','PWA','NODEJS','MONGODB','NGINX','DOCKER','KUBERNETES','GCP'],
 		description:"An app to track your investments developed with Node.js, MongoDB, React.js, and workers using TypeScript.",
@@ -11,7 +26,9 @@ export const projects = [
 		The web app's build is exposed with NGINX.`,
 		title:'INVESTMENT MANAGER APP',
 		img:'/assets/img/screenshot-investment.png',
-		alt:'investment app screenshot'
+		alt:'investment app screenshot',
+		web:'https://bonnce.github.io/investment-manager-app/',
+		github:'https://github.com/bonnce/investment-manager-app'
 	},
 	{
 		id:'SHOPPING LIST',
@@ -24,7 +41,9 @@ export const projects = [
 		This gives it the capability of being installed as a mobile app and also allows it to run offline for convenience.`,
 		title:'SHOPPING LIST APP',
 		img:'/assets/img/shopping-list-screenshot.png',
-		alt:'shopping list app screenshot'
+		alt:'shopping list app screenshot',
+		web:'https://github.com/bonnce/shopping-list',
+		github:'https://bonnce.github.io/shopping-list/'
 	},
 	{
 		id:'ARGO TEKTON',

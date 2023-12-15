@@ -25,6 +25,9 @@ const project = projects.filter(pro => pro.id === id)[0]
     <div class="w-full flex flex-col items-center justify-start">
       <p class="text-green-300 text-2xl md:w-3/4 z-10">
         {project.descriptionExtended}
+        <br>
+        {project.web && <>You are welcome to visit the <a class="text-violet-400" href={project.web}>website. </a> </> }
+        {project.github && <>You can also examine the <a class="text-violet-400" href={project.github}>source code here.</a> </>}
       </p>  
     </div>
   </section>
