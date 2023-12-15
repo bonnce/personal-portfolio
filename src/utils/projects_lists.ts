@@ -42,8 +42,8 @@ export const projects = [
 		title:'SHOPPING LIST APP',
 		img:'/assets/img/shopping-list-screenshot.png',
 		alt:'shopping list app screenshot',
-		web:'https://github.com/bonnce/shopping-list',
-		github:'https://bonnce.github.io/shopping-list/'
+		web:'https://bonnce.github.io/shopping-list/',
+		github:'https://github.com/bonnce/shopping-list'
 	},
 	{
 		id:'ARGO TEKTON',
