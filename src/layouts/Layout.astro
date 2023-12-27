@@ -54,7 +54,7 @@ const { title, location } = Astro.props;
 		<ViewTransitions/>
 	</head>
 	<body transition:name="slide" transition:animate={slideTransition}>
-	<main class="flex w-screen h-screen justify-between overflow-hidden relative">
+	<main class="flex w-screen h-dvh justify-between overflow-hidden relative">
 
 		<slot/>
 		<Navbar selected={location} />
