@@ -12,7 +12,7 @@ const {id} = Astro.params
 const project = projects.filter(pro => pro.id === id)[0]
 ---
 <Layout title={`Project - ${id}`} location={`Project-${id}`}>
-  <section class="w-full h-full overflow-y-auto overflow-x-hidden relative p-4 md:p-0">
+  <section class="w-full h-full overflow-y-auto overflow-x-hidden relative p-5 md:p-0">
     <div class="relative left-0 top-0 w-full h-[50vh] overflow-hidden">
       <img class=" w-full h-full object-cover blur-sm brightness-75" src={project.img} alt={project.alt}>
       <span id="gradient"></span>

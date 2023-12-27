@@ -5,7 +5,7 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Contact me" location="contact">
-	<section class="md:w-3/4 flex flex-col justify-center items-center overflow-y-auto overflow-x-hidden font-vga">
+	<section class="md:w-3/4 p-5 flex flex-col justify-center items-center overflow-y-auto overflow-x-hidden font-vga">
 
 		<NeonTitle className="text-5xl" title="Contact with me"/>
 		<br>
@@ -36,5 +36,9 @@ import Layout from "../layouts/Layout.astro";
 		transition: all .3s ease-in;
 		z-index: -1;
 	}
-
+	@media (max-height: 450px) {
+        section{
+			justify-content: flex-start;
+		}
+    }
 </style>
